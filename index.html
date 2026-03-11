@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JewelFAQ - Consultoría Técnica de Joyería</title>
+  <meta name="description" content="Consultoría de joyería en 24 horas. Sin automatismos, solo criterio profesional.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">JewelFAQ</a>
+      <nav class="nav-desktop">
+        <a href="particulares.html">Particulares</a>
+        <a href="joyeros-3d.html">Joyeros & 3D</a>
+        <a href="estudiantes.html">Estudiantes</a>
+        <a href="sobre-mi.html">Sobre Mí</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <!-- Burger -->
+      <button class="burger-btn" id="burger-btn" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <div
+      style="background-color: var(--accent-digital); color: #FFF; text-align: center; font-size: 13px; font-weight: 500; padding: 8px 16px; margin-top: 16px;">
+      Esta web aún no está completa. El negocio a través de ella estará disponible a partir de abril de 2026.<br>
+      Damos asistencia gratis a un cliente al día elegido a nuestro criterio. Aprovecha el momentum.
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu-close" id="mobile-menu-close">&times;</button>
+    <a href="particulares.html">Particulares</a>
+    <a href="joyeros-3d.html">Joyeros & 3D</a>
+    <a href="estudiantes.html">Estudiantes</a>
+    <a href="sobre-mi.html">Sobre Mí</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+
+  <main>
+    <!-- Hero / Intro -->
+    <section style="padding-top: 160px;">
+      <div class="container text-center reveal">
+        <span class="color-accent"
+          style="font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 14px; display: block; margin-bottom: 24px;">JewelFAQ.com</span>
+        <h1 style="max-width: 900px; margin: 0 auto 32px;">Consultoría de joyería en 24 horas.<br>Sin automatismos, solo
+          criterio profesional.</h1>
+        <p class="lead" style="margin: 0 auto 48px;">
+          Me cuentas tu caso, lo miro con ojos de joyero de banco y te devuelvo una opinión realista para que tomes
+          decisiones con más tranquilidad.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap;">
+          <a href="contacto.html" class="btn btn-primary">Haz tu consulta</a>
+          <a href="#como-funciona" class="btn btn-secondary">Cómo funciona</a>
+        </div>
+        <p style="margin-top: 32px; font-size: 14px; color: var(--text-muted); font-weight: 500;">
+          * Respuesta en menos de 24 horas. No hago atención instantánea ni por WhatsApp.
+        </p>
+      </div>
+    </section>
+
+    <!-- Para quién es esto (Bento Grid) -->
+    <section>
+      <div class="container reveal">
+        <h2 class="text-center" style="margin-bottom: 64px;">Para quién es esto</h2>
+        <div class="bento-grid col-3">
+
+          <div class="bento-card">
+            <h3>Particulares</h3>
+            <p style="margin: 16px 0 32px; flex-grow: 1;">
+              Que quieren una segunda opinión antes de aceptar una reparación, un presupuesto o una compra importante.
+            </p>
+            <a href="particulares.html" class="text-link">Ver página de Particulares
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="bento-card">
+            <h3>Joyeros y Diseñadores 3D</h3>
+            <p style="margin: 16px 0 32px; flex-grow: 1;">
+              Con dudas técnicas, administrativas o problemas de diseño en el día a día del taller.
+            </p>
+            <a href="joyeros-3d.html" class="text-link">Ver página de Joyeros y 3D
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="bento-card dark">
+            <h3>Estudiantes y aspirantes</h3>
+            <p style="margin: 16px 0 32px; flex-grow: 1; color: var(--text-muted);">
+              Que buscan acompañamiento real mientras aprenden o montan su propio negocio.
+            </p>
+            <a href="estudiantes.html" class="text-link" style="color: #FFF;">Ver página de Estudiantes
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo funciona (visión general) -->
+    <section id="como-funciona" style="background-color: #fff; padding: 120px 0;">
+      <div class="container reveal">
+        <h2 class="text-center" style="margin-bottom: 80px;">Cómo funciona (Visión general)</h2>
+
+        <div class="bento-grid col-3" style="gap: 40px;">
+          <div style="text-align: center;">
+            <div
+              style="width: 64px; height: 64px; border-radius: 50%; background: var(--accent-light); color: var(--accent-digital); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; margin: 0 auto 24px;">
+              1</div>
+            <p style="color: var(--text-main); font-weight: 500;">Me envías tu caso por formulario, email o WhatsApp
+              (texto y fotos).</p>
+          </div>
+          <div style="text-align: center;">
+            <div
+              style="width: 64px; height: 64px; border-radius: 50%; background: var(--accent-light); color: var(--accent-digital); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; margin: 0 auto 24px;">
+              2</div>
+            <p style="color: var(--text-main); font-weight: 500;">Reviso la complejidad de lo que me pides y te envío un
+              presupuesto personalizado y la confirmación de que puedo ayudarte.</p>
+          </div>
+          <div style="text-align: center;">
+            <div
+              style="width: 64px; height: 64px; border-radius: 50%; background: var(--accent-light); color: var(--accent-digital); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; margin: 0 auto 24px;">
+              3</div>
+            <p style="color: var(--text-main); font-weight: 500;">Tras el pago, recibes mi opinión profesional en menos
+              de 24 horas.</p>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 64px;">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ General (resumen) -->
+    <section>
+      <div class="container reveal">
+        <h2 class="text-center" style="margin-bottom: 64px;">FAQ General</h2>
+
+        <div class="faq-grid">
+
+          <div class="accordion">
+            <div class="accordion-header">
+              ¿Quién responde a mi consulta?
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p style="margin-top: 16px;">Siempre respondo yo, Colin, joyero de banco y profesor. No uso asistentes, ni
+                becarios, ni inteligencia artificial.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              ¿Por qué el plazo es de 24 horas?
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p style="margin-top: 16px;">Porque reviso cada caso con calma y criterio de banco. Sea cual sea el canal
+                (WhatsApp, Email o Formulario), el compromiso es responderte en un máximo de 24 horas desde la
+                confirmación del pago.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              ¿Respondes al momento si te escribo por WhatsApp?
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p style="margin-top: 16px;">No. WhatsApp es solo un canal de envío, igual que email o formulario. No
+                respondo al instante: el tiempo de respuesta es de hasta 24 horas desde la confirmación del pago.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              ¿Qué cubre el pago de mi consulta?
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p style="margin-top: 16px;">El presupuesto aceptado cubre exclusivamente el caso o la duda planteada
+                inicialmente. Si la respuesta genera nuevas consultas o se añaden preguntas adicionales no
+                presupuestadas, se valorarán como un caso nuevo.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              ¿Aceptas llamadas o videollamadas?
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p style="margin-top: 16px;">No. Trabajo exclusivamente con texto y archivos. Esto me permite analizar los
+                detalles técnicos con la calma que requiere el oficio y darte una respuesta precisa que puedas consultar
+                siempre que quieras.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              ¿Es confidencial?
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p style="margin-top: 16px;">Totalmente. Tu información, archivos y fotos se usan solo para asesorarte. No
+                se publican ni se guardan a largo plazo.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h4>JewelFAQ</h4>
+        <p style="color: var(--text-muted); font-size: 14px;">Consultoría técnica sin concesiones.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="particulares.html">Particulares</a></li>
+          <li><a href="joyeros-3d.html">Joyeros & 3D</a></li>
+          <li><a href="estudiantes.html">Estudiantes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Políticas</h5>
+        <ul>
+          <li><a href="contacto.html">Aviso Legal</a></li>
+          <li><a href="contacto.html">Políticas Anti Fraude</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="contacto.html">Iniciar Consulta</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      &copy; JewelFAQ™ — Trademark of The Jewellery Crafters. Birmingham, UK.
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>

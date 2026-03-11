@@ -18,14 +18,14 @@ $name      = clean($_POST['name']      ?? '');
 $email     = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
 $message   = clean($_POST['mensaje']   ?? '');
 $form_type = clean($_POST['form_type'] ?? 'general');
-$tier_key  = clean($_POST['tier']      ?? 'basica');
+$tier_key  = clean($_POST['tier']      ?? 'estandar');
 
 // Validate
 $errors = [];
-if (strlen($name) < 2)                          $errors[] = 'El nombre es obligatorio.';
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'El email no es válido.';
-if (strlen($message) < 10)                      $errors[] = 'Por favor describe tu consulta (mínimo 10 caracteres).';
-if (!array_key_exists($tier_key, CONSULTATION_TIERS)) $tier_key = 'basica';
+if (strlen($name) < 2)                          $errors[] = 'Name is required.';
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Please enter a valid email address.';
+if (strlen($message) < 10)                      $errors[] = 'Please describe your case (minimum 10 characters).';
+if (!array_key_exists($tier_key, CONSULTATION_TIERS)) $tier_key = 'estandar';
 
 if ($errors) {
     $ref = $_SERVER['HTTP_REFERER'] ?? 'index.html';
@@ -52,7 +52,7 @@ if (!$result['ok'] || empty($result['data']['url'])) {
     $db->prepare("DELETE FROM consultations WHERE id = ?")->execute([$id]);
     $ref = $_SERVER['HTTP_REFERER'] ?? 'index.html';
     $ref = strtok($ref, '?');
-    $err = urlencode('Error al conectar con el sistema de pago. Por favor inténtalo de nuevo.');
+    $err = urlencode('Payment system error. Please try again.');
     header("Location: $ref?error=$err");
     exit;
 }

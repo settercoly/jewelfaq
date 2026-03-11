@@ -208,8 +208,10 @@
             <div class="container reveal">
                 <h2 class="text-center" style="margin-bottom: 48px;">Formulario de consulta – Particulares</h2>
 
+                <div id="form-error-banner" style="display:none; background:#fee2e2; color:#991b1b; border-radius:8px; padding:12px 16px; margin-bottom:20px; font-weight:600;"></div>
+
                 <div class="form-bento">
-                    <form action="contact.php" method="POST">
+                    <form action="checkout.php" method="POST">
                         <input type="hidden" name="form_type" value="particulares">
 
                         <div class="bento-grid" style="gap: 24px; margin-bottom: 24px;">
@@ -225,11 +227,42 @@
 
                         <div class="form-group">
                             <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" required></textarea>
+                            <textarea id="mensaje" name="mensaje" required placeholder="Describe tu consulta con el mayor detalle posible: qué tipo de pieza es, qué quieres saber, qué problema tienes…"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 24px;">Enviar
-                            consulta – Particulares</button>
+                        <div class="form-group" style="margin-top: 24px;">
+                            <label>Nivel de consulta</label>
+                            <div style="display: grid; gap: 12px; margin-top: 8px;">
+                                <label style="display:flex; align-items:flex-start; gap:12px; background:var(--bg-body); border:1.5px solid var(--border-subtle); border-radius:12px; padding:16px; cursor:pointer;">
+                                    <input type="radio" name="tier" value="basica" required style="margin-top:3px; accent-color:var(--accent-digital);">
+                                    <div>
+                                        <div style="font-weight:700;">Consulta Básica — £20</div>
+                                        <div style="font-size:13px; color:var(--text-muted);">1 pieza, pregunta directa, análisis rápido. Respuesta en 24h.</div>
+                                    </div>
+                                </label>
+                                <label style="display:flex; align-items:flex-start; gap:12px; background:var(--bg-body); border:1.5px solid var(--border-subtle); border-radius:12px; padding:16px; cursor:pointer;">
+                                    <input type="radio" name="tier" value="estandar" style="margin-top:3px; accent-color:var(--accent-digital);">
+                                    <div>
+                                        <div style="font-weight:700;">Consulta Estándar — £45</div>
+                                        <div style="font-size:13px; color:var(--text-muted);">Hasta 3 piezas o con fotos y detalles técnicos. Respuesta en 24h.</div>
+                                    </div>
+                                </label>
+                                <label style="display:flex; align-items:flex-start; gap:12px; background:var(--bg-body); border:1.5px solid var(--border-subtle); border-radius:12px; padding:16px; cursor:pointer;">
+                                    <input type="radio" name="tier" value="completa" style="margin-top:3px; accent-color:var(--accent-digital);">
+                                    <div>
+                                        <div style="font-weight:700;">Consulta Completa — £80</div>
+                                        <div style="font-size:13px; color:var(--text-muted);">Análisis técnico profundo, múltiples piezas o archivos 3D. Respuesta en 24h.</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 24px;">
+                            Continuar al pago →
+                        </button>
+                        <p style="text-align:center; font-size:12px; color:var(--text-muted); margin-top:10px;">
+                            Pago seguro con tarjeta vía Stripe. Recibirás la respuesta en 24h.
+                        </p>
                     </form>
 
                     <div style="margin-top: 32px; text-align: center;">
@@ -288,6 +321,16 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script>
+        (function () {
+            var p = new URLSearchParams(window.location.search);
+            var err = p.get('error');
+            if (err) {
+                var el = document.getElementById('form-error-banner');
+                if (el) { el.textContent = decodeURIComponent(err); el.style.display = 'block'; el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            }
+        })();
+    </script>
 </body>
 
 </html>

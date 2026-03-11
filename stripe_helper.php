@@ -1,0 +1,112 @@
+<?php
+require_once __DIR__ . '/config.php';
+
+/**
+ * Generic Stripe REST API request via cURL.
+ */
+function stripe_request(string $method, string $endpoint, array $data = []): array
+{
+    $url = 'https://api.stripe.com/v1/' . $endpoint;
+
+    $ch = curl_init();
+    curl_setopt_array($ch, [
+        CURLOPT_URL            => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_USERPWD        => STRIPE_SECRET_KEY . ':',
+        CURLOPT_HTTPHEADER     => ['Content-Type: application/x-www-form-urlencoded'],
+        CURLOPT_TIMEOUT        => 30,
+        CURLOPT_SSL_VERIFYPEER => true,
+    ]);
+
+    if ($method === 'POST') {
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    }
+
+    $response  = curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curl_err  = curl_error($ch);
+    curl_close($ch);
+
+    if ($curl_err) {
+        return ['ok' => false, 'error' => $curl_err, 'data' => null];
+    }
+
+    return [
+        'ok'   => $http_code >= 200 && $http_code < 300,
+        'code' => $http_code,
+        'data' => json_decode($response, true),
+    ];
+}
+
+/**
+ * Create a Stripe Checkout Session for a consultation.
+ */
+function stripe_create_checkout(
+    string $consultation_id,
+    string $tier_key,
+    string $email,
+    string $name
+): array {
+    $tier = CONSULTATION_TIERS[$tier_key];
+
+    return stripe_request('POST', 'checkout/sessions', [
+        'payment_method_types[]'                               => 'card',
+        'line_items[0][price_data][currency]'                  => 'gbp',
+        'line_items[0][price_data][product_data][name]'        => $tier['name'] . ' — JewelFAQ',
+        'line_items[0][price_data][product_data][description]' => $tier['description'],
+        'line_items[0][price_data][unit_amount]'               => $tier['amount'],
+        'line_items[0][quantity]'                              => 1,
+        'mode'                                                 => 'payment',
+        'customer_email'                                       => $email,
+        'success_url'                                          => SITE_URL . '/pago-exito.php?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url'                                           => SITE_URL . '/pago-cancel.php',
+        'metadata[consultation_id]'                            => $consultation_id,
+        'metadata[customer_name]'                              => $name,
+    ]);
+}
+
+/**
+ * Retrieve a Checkout Session from Stripe (to verify payment).
+ */
+function stripe_get_session(string $session_id): array
+{
+    return stripe_request('GET', 'checkout/sessions/' . urlencode($session_id));
+}
+
+/**
+ * Verify a Stripe webhook signature.
+ * Returns the decoded event array, or false if invalid.
+ */
+function stripe_verify_webhook(string $payload, string $sig_header): array|false
+{
+    $parts      = explode(',', $sig_header);
+    $timestamp  = null;
+    $signatures = [];
+
+    foreach ($parts as $part) {
+        [$k, $v] = explode('=', $part, 2);
+        if ($k === 't')  $timestamp    = $v;
+        if ($k === 'v1') $signatures[] = $v;
+    }
+
+    if (!$timestamp || empty($signatures)) {
+        return false;
+    }
+
+    // Reject replays older than 5 minutes
+    if (abs(time() - (int) $timestamp) > 300) {
+        return false;
+    }
+
+    $signed   = $timestamp . '.' . $payload;
+    $expected = hash_hmac('sha256', $signed, STRIPE_WEBHOOK_SECRET);
+
+    foreach ($signatures as $sig) {
+        if (hash_equals($expected, $sig)) {
+            return json_decode($payload, true);
+        }
+    }
+
+    return false;
+}

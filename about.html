@@ -163,7 +163,7 @@
                 <ul>
                     <li><a href="#" onclick="document.getElementById('modal-privacy').style.display='flex';return false;">Privacy Policy</a></li>
                     <li><a href="#" onclick="document.getElementById('modal-terms').style.display='flex';return false;">Terms &amp; Conditions</a></li>
-                    <li><a href="contact.html">Anti-Fraud Notice</a></li>
+                    <li><a href="#" onclick="document.getElementById('modal-antifraud').style.display='flex';return false;">Anti-Fraud Notice</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -180,21 +180,43 @@
     </footer>
 
     <!-- Privacy Policy Modal -->
-    <div id="modal-privacy" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:9000; align-items:flex-start; justify-content:center; padding:40px 24px; overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
-        <div style="background:#fff; border-radius:16px; max-width:640px; width:100%; padding:40px; position:relative; margin:auto;">
-            <button onclick="document.getElementById('modal-privacy').style.display='none'" style="position:absolute;top:16px;right:20px;font-size:28px;background:none;border:none;cursor:pointer;color:#6b7280;line-height:1;">&times;</button>
-            <h2 style="margin-bottom:8px;">Privacy Policy</h2>
-            <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;">Last updated: March 2026</p>
-            <div style="line-height:1.9;color:var(--text-main);font-size:15px;">
-                <p><strong>Who we are:</strong> JewelFAQ, trading as The Jewellery Crafters, Birmingham, UK.</p>
-                <p style="margin-top:14px;"><strong>What we collect:</strong> Your name, WhatsApp number, and the description of your jewellery case when you submit a consultation request.</p>
-                <p style="margin-top:14px;"><strong>Why we collect it:</strong> To provide the consultation service you requested, and to contact you about your case via WhatsApp.</p>
-                <p style="margin-top:14px;"><strong>Retention:</strong> Your data is kept for up to 12 months from the date of your consultation, then deleted.</p>
-                <p style="margin-top:14px;"><strong>Payments:</strong> Card payments are processed by Stripe, Inc. JewelFAQ does not store or have access to your card details.</p>
-                <p style="margin-top:14px;"><strong>Your rights (UK GDPR):</strong> You have the right to access, correct or delete your personal data at any time. Contact us via WhatsApp (+44 74 1507 2425) to exercise these rights.</p>
-                <p style="margin-top:14px;"><strong>Third parties:</strong> We do not sell or share your personal data with any third parties, except Stripe for payment processing.</p>
-            </div>
+<div id="modal-privacy" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:9000; align-items:flex-start; justify-content:center; padding:40px 24px; overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
+    <div style="background:#fff; border-radius:16px; max-width:680px; width:100%; padding:40px; position:relative; margin:auto;">
+        <button onclick="document.getElementById('modal-privacy').style.display='none'" style="position:absolute;top:16px;right:20px;font-size:28px;background:none;border:none;cursor:pointer;color:#6b7280;line-height:1;">&times;</button>
+        <h2 style="margin-bottom:8px;">Privacy Policy</h2>
+        <p style="color:#6b7280;font-size:13px;margin-bottom:28px;">Last updated: March 2026 &mdash; JewelFAQ / The Jewellery Crafters, Birmingham, UK</p>
+        <div style="line-height:1.9;color:#1D1D1F;font-size:14px;">
+            <p><strong>1. Who We Are</strong><br>JewelFAQ is a trading name of The Jewellery Crafters, based in The Jewellery Quarter, Birmingham, UK. We are the data controller for all personal information collected through this website. [Company registration number: pending].</p>
+            <p style="margin-top:16px;"><strong>2. What Personal Data We Collect</strong><br>
+                &bull; Full name<br>
+                &bull; WhatsApp / phone number<br>
+                &bull; Email address (where provided)<br>
+                &bull; Description of your jewellery case or enquiry<br>
+                &bull; Payment reference issued by Stripe (we never see or store your card details)
+            </p>
+            <p style="margin-top:16px;"><strong>3. Legal Basis for Processing (UK GDPR, Art. 6)</strong><br>
+                &bull; <em>Performance of a contract</em> &mdash; to deliver the consultation service you have requested.<br>
+                &bull; <em>Legitimate interests</em> &mdash; to manage our operations, prevent fraud and maintain financial records.
+            </p>
+            <p style="margin-top:16px;"><strong>4. How We Use Your Data</strong><br>
+                &bull; To assess, manage and respond to your consultation request.<br>
+                &bull; To send you a payment link and your written response via WhatsApp.<br>
+                &bull; To issue refunds where applicable.<br>
+                &bull; To meet our legal obligations under UK tax and business law.
+            </p>
+            <p style="margin-top:16px;"><strong>5. Retention</strong><br>Your personal data is retained for 12 months from the date of your consultation, after which it is permanently deleted. Financial records required by HMRC are retained for up to 6 years in accordance with the Taxes Management Act 1970.</p>
+            <p style="margin-top:16px;"><strong>6. Third Parties</strong><br>
+                &bull; <em>Stripe, Inc.</em> &mdash; processes card payments. Stripe is PCI DSS Level 1 certified. We receive only a payment confirmation reference, never your card details. See <a href="https://stripe.com/gb/privacy" target="_blank" style="color:#00674F;">stripe.com/gb/privacy</a>.<br>
+                &bull; We do not sell, rent or share your personal data with any other third parties.
+            </p>
+            <p style="margin-top:16px;"><strong>7. Your Rights under UK GDPR</strong><br>You have the right to: access the personal data we hold about you &bull; correct inaccurate data &bull; request erasure (&ldquo;right to be forgotten&rdquo;) &bull; restrict or object to processing &bull; data portability.<br>
+            To exercise any of these rights, contact us via WhatsApp at <strong>+44 74 1507 2425</strong>. We will respond within 30 days.
+            </p>
+            <p style="margin-top:16px;"><strong>8. Cookies</strong><br>This website does not use tracking, advertising or analytical cookies.</p>
+            <p style="margin-top:16px;"><strong>9. Complaints</strong><br>If you believe we have not handled your data lawfully, you have the right to lodge a complaint with the <strong>Information Commissioner&apos;s Office (ICO)</strong>: <a href="https://ico.org.uk" target="_blank" style="color:#00674F;">ico.org.uk</a> &mdash; 0303 123 1113.</p>
         </div>
+    </div>
+</div>
     </div>
 
     <!-- Terms & Conditions Modal -->
@@ -216,6 +238,39 @@
             </div>
         </div>
     </div>
+
+<!-- Anti-Fraud Notice Modal -->
+<div id="modal-antifraud" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:9000; align-items:flex-start; justify-content:center; padding:40px 24px; overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
+    <div style="background:#fff; border-radius:16px; max-width:680px; width:100%; padding:40px; position:relative; margin:auto;">
+        <button onclick="document.getElementById('modal-antifraud').style.display='none'" style="position:absolute;top:16px;right:20px;font-size:28px;background:none;border:none;cursor:pointer;color:#6b7280;line-height:1;">&times;</button>
+        <h2 style="margin-bottom:8px; color:#dc2626;">Anti-Fraud Notice</h2>
+        <p style="color:#6b7280;font-size:13px;margin-bottom:28px;">Last updated: March 2026</p>
+        <div style="line-height:1.9;color:#1D1D1F;font-size:14px;">
+            <p>JewelFAQ only communicates through the official channels listed below. If anyone contacts you claiming to represent JewelFAQ through any other channel, or requests payment to a different account, <strong>do not comply</strong> &mdash; this is fraud.</p>
+            <p style="margin-top:16px;"><strong>Official Contact Channels</strong><br>
+                &bull; Website: <strong>jewelfaq.com</strong> (forms only)<br>
+                &bull; WhatsApp: <strong>+44 74 1507 2425</strong><br>
+                &bull; Email: <strong>ciufuliciboy2@gmail.com</strong> [to be updated]
+            </p>
+            <p style="margin-top:16px;"><strong>Official Payment Method</strong><br>
+                &bull; Card payment only, via <strong>Stripe</strong>, through the link sent to your WhatsApp from our official number.<br>
+                &bull; JewelFAQ will <strong>never</strong> ask for payment via bank transfer, PayPal, Revolut, cryptocurrency or cash.<br>
+                &bull; [Business account details: to be added]
+            </p>
+            <p style="margin-top:16px;"><strong>Warning Signs of Fraud</strong><br>
+                &bull; Messages from an unknown number or account claiming to be Colin or JewelFAQ.<br>
+                &bull; Requests to pay a &ldquo;new&rdquo; or &ldquo;updated&rdquo; link not sent from our official WhatsApp.<br>
+                &bull; Urgency pressure: &ldquo;Pay now or lose your slot.&rdquo;<br>
+                &bull; Requests for personal documents (passport, bank statements) &mdash; we never ask for these.
+            </p>
+            <p style="margin-top:16px;"><strong>What to Do if You Suspect Fraud</strong><br>
+                1. Do not send any payment.<br>
+                2. Contact us directly via WhatsApp at <strong>+44 74 1507 2425</strong> to verify.<br>
+                3. Report to <strong>Action Fraud</strong> (UK): <a href="https://actionfraud.police.uk" target="_blank" style="color:#dc2626;">actionfraud.police.uk</a> &mdash; 0300 123 2040.
+            </p>
+        </div>
+    </div>
+</div>
 
     <script src="assets/js/script.js"></script>
 </body>

@@ -59,11 +59,46 @@ function stripe_create_checkout(
         'line_items[0][quantity]'                              => 1,
         'mode'                                                 => 'payment',
         'customer_email'                                       => $email,
-        'success_url'                                          => SITE_URL . '/pago-exito.php?session_id={CHECKOUT_SESSION_ID}',
-        'cancel_url'                                           => SITE_URL . '/pago-cancel.php',
+        'success_url'                                          => SITE_URL . '/success.php?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url'                                           => SITE_URL . '/cancel.php',
         'metadata[consultation_id]'                            => $consultation_id,
         'metadata[customer_name]'                              => $name,
     ]);
+}
+
+/**
+ * Generate a Stripe payment link for a specific consultation (admin flow).
+ * Returns ['url' => string, 'session_id' => string].
+ * Throws RuntimeException on Stripe error.
+ */
+function generate_payment_link(string $consultation_id): array
+{
+    require_once __DIR__ . '/db.php';
+    $c    = get_consultation($consultation_id);
+    $tier = CONSULTATION_TIERS['estandar'];
+
+    $result = stripe_request('POST', 'checkout/sessions', [
+        'payment_method_types[]'                               => 'card',
+        'line_items[0][price_data][currency]'                  => 'gbp',
+        'line_items[0][price_data][product_data][name]'        => 'JewelFAQ Consultation',
+        'line_items[0][price_data][product_data][description]' => $tier['description'],
+        'line_items[0][price_data][unit_amount]'               => $tier['amount'],
+        'line_items[0][quantity]'                              => 1,
+        'mode'                                                 => 'payment',
+        'success_url'                                          => SITE_URL . '/success.php?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url'                                           => SITE_URL . '/cancel.php',
+        'metadata[consultation_id]'                            => $consultation_id,
+        'metadata[customer_name]'                              => $c ? $c['name'] : '',
+    ]);
+
+    if (!$result['ok']) {
+        throw new RuntimeException('Stripe error: ' . ($result['data']['error']['message'] ?? 'unknown'));
+    }
+
+    return [
+        'url'        => $result['data']['url'],
+        'session_id' => $result['data']['id'],
+    ];
 }
 
 /**

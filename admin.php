@@ -84,6 +84,25 @@ if ($authenticated && $_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             $action_error = 'Case not found or not in paid status.';
         }
+
+    } elseif ($action === 'refund') {
+        $cid = $_POST['consultation_id'] ?? '';
+        $c   = get_consultation($cid);
+        if ($c && $c['status'] === 'paid' && $c['stripe_session_id']) {
+            $refund = refund_stripe_payment($c['stripe_session_id']);
+            if ($refund['ok']) {
+                $db->prepare("
+                    UPDATE consultations
+                    SET status = 'refunded', refund_id = ?
+                    WHERE id = ?
+                ")->execute([$refund['refund_id'], $cid]);
+                $action_msg = 'Refund issued successfully (ID: ' . htmlspecialchars($refund['refund_id']) . ')';
+            } else {
+                $action_error = 'Refund failed: ' . htmlspecialchars($refund['error']);
+            }
+        } else {
+            $action_error = 'Case not found or not in paid status.';
+        }
     }
 }
 
@@ -353,6 +372,14 @@ function count_tab(array $rows, string $key): int
                                     </a>
                                 <?php endif; ?>
                             </div>
+                        </form>
+
+                        <form method="POST" style="margin-top: 8px;">
+                            <input type="hidden" name="action" value="refund">
+                            <input type="hidden" name="consultation_id" value="<?= htmlspecialchars($c['id']) ?>">
+                            <button type="submit" class="btn" style="background:#dc2626; color:#fff; padding:8px 16px; border-radius:6px; font-size:13px; cursor:pointer; border:none;" onclick="return confirm('Issue full refund for this case?');">
+                                💰 Issue Refund
+                            </button>
                         </form>
                     </div>
                 </div>

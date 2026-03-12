@@ -1,7 +1,7 @@
 <?php
 /**
  * Response Viewer — JewelFAQ
- * URL: /ver-respuesta.php?id=UUID&t=TOKEN
+ * URL: /view-response.php?id=UUID&t=TOKEN
  *
  * Only accessible with a valid token derived from the consultation ID + secret salt.
  * Shows the response when available, or a "pending" message if not yet answered.
@@ -18,32 +18,28 @@ $error = '';
 if ($id && $token) {
     $c = get_consultation($id);
     if ($c) {
-        // Verify token and payment
         if (!hash_equals(response_token($id), $token)) {
-            $error = 'Enlace no válido.';
+            $error = 'Invalid link.';
             $c     = null;
-        } elseif ($c['payment_status'] !== 'paid') {
-            $error = 'Esta consulta no ha sido pagada.';
+        } elseif (!in_array($c['status'] ?? '', ['paid', 'answered'], true)) {
+            $error = 'This consultation has not been paid yet.';
             $c     = null;
         } else {
             $valid = true;
         }
     } else {
-        $error = 'Consulta no encontrada.';
+        $error = 'Consultation not found.';
     }
 } else {
-    $error = 'Enlace incompleto.';
+    $error = 'Incomplete link.';
 }
-
-$tiers     = CONSULTATION_TIERS;
-$tier_name = $c ? ($tiers[$c['tier']]['name'] ?? $c['tier']) : '';
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu respuesta — JewelFAQ</title>
+    <title>Your response — JewelFAQ</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         .response-body {
@@ -82,37 +78,33 @@ $tier_name = $c ? ($tiers[$c['tier']]['name'] ?? $c['tier']) : '';
 
         <?php if (!$valid): ?>
 
-            <!-- ── Invalid / unpaid ── -->
             <div style="text-align: center;">
-                <div style="font-size: 64px; margin-bottom: 24px; line-height: 1;">🔒</div>
-                <h1 style="margin-bottom: 16px;">Acceso no disponible</h1>
+                <div style="font-size: 64px; margin-bottom: 24px; line-height: 1;">&#128274;</div>
+                <h1 style="margin-bottom: 16px;">Access unavailable</h1>
                 <p class="lead" style="margin-bottom: 32px;">
                     <?= htmlspecialchars($error) ?>
                 </p>
-                <a href="index.html" class="btn btn-secondary">← Volver al inicio</a>
+                <a href="index.html" class="btn btn-secondary">&larr; Back to homepage</a>
             </div>
 
         <?php elseif ($c['response'] === null): ?>
 
-            <!-- ── Paid, response pending ── -->
             <div style="text-align: center;">
-                <div class="pending-icon">⏳</div>
-                <h1 style="margin-bottom: 16px;">Respuesta en preparación</h1>
+                <div class="pending-icon">&#9203;</div>
+                <h1 style="margin-bottom: 16px;">Response being prepared</h1>
                 <p class="lead" style="margin-bottom: 16px;">
-                    Hola <strong><?= htmlspecialchars($c['name']) ?></strong>, tu pago ha sido confirmado.
+                    Hi <strong><?= htmlspecialchars($c['name']) ?></strong>, your payment has been confirmed.
                 </p>
                 <p style="color: var(--text-muted); margin-bottom: 40px;">
-                    Estoy trabajando en tu respuesta. La recibirás en menos de
-                    <strong>24 horas</strong> desde que realizaste el pago.<br>
-                    También recibirás un email en
-                    <strong><?= htmlspecialchars($c['email']) ?></strong> cuando esté lista.
+                    Colin is working on your response. It will be ready within
+                    <strong>24 hours</strong> of payment.<br>
+                    Bookmark this page — your response will appear here.
                 </p>
 
                 <div class="bento-card" style="text-align: left; margin-bottom: 32px;">
-                    <h3 style="margin-bottom: 16px; font-size: 16px;">Tu consulta enviada</h3>
+                    <h3 style="margin-bottom: 16px; font-size: 16px;">Your submitted case</h3>
                     <div style="font-size: 13px; margin-bottom: 12px;">
                         <span class="meta-pill"><?= htmlspecialchars($c['form_type']) ?></span>
-                        <span class="meta-pill"><?= htmlspecialchars($tier_name) ?></span>
                         <span class="meta-pill"><?= htmlspecialchars(substr($c['created_at'], 0, 16)) ?></span>
                     </div>
                     <div style="background: #f9fafb; border-radius: 8px; padding: 16px; font-size: 14px; color: #374151; white-space: pre-wrap; word-break: break-word;">
@@ -121,29 +113,27 @@ $tier_name = $c ? ($tiers[$c['tier']]['name'] ?? $c['tier']) : '';
                 </div>
 
                 <p style="font-size: 13px; color: var(--text-muted);">
-                    Guarda esta página en marcadores. URL válida solo para ti.
+                    Bookmark this page. This URL is valid only for you.
                 </p>
             </div>
 
         <?php else: ?>
 
-            <!-- ── Response available ── -->
             <div style="margin-bottom: 32px;">
-                <h1 style="margin-bottom: 8px;">Tu respuesta está lista</h1>
+                <h1 style="margin-bottom: 8px;">Your response is ready</h1>
                 <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">
-                    Hola <strong><?= htmlspecialchars($c['name']) ?></strong> —
-                    análisis realizado por Colin, joyero profesional.
+                    Hi <strong><?= htmlspecialchars($c['name']) ?></strong> —
+                    analysis by Colin, professional bench jeweller.
                 </p>
                 <div>
                     <span class="meta-pill"><?= htmlspecialchars($c['form_type']) ?></span>
-                    <span class="meta-pill"><?= htmlspecialchars($tier_name) ?></span>
-                    <span class="meta-pill">Respondido <?= htmlspecialchars(substr($c['response_date'] ?? '', 0, 16)) ?></span>
+                    <span class="meta-pill">Answered <?= htmlspecialchars(substr($c['response_date'] ?? '', 0, 16)) ?></span>
                 </div>
             </div>
 
             <div style="margin-bottom: 32px;">
                 <h2 style="font-size: 15px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px;">
-                    Tu consulta
+                    Your case
                 </h2>
                 <div style="background: #f9fafb; border-radius: 10px; padding: 16px; font-size: 14px; color: #374151; white-space: pre-wrap; word-break: break-word;">
                     <?= htmlspecialchars($c['message']) ?>
@@ -152,7 +142,7 @@ $tier_name = $c ? ($tiers[$c['tier']]['name'] ?? $c['tier']) : '';
 
             <div style="margin-bottom: 48px;">
                 <h2 style="font-size: 15px; font-weight: 700; color: var(--accent-digital); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px;">
-                    Respuesta de Colin
+                    Colin's response
                 </h2>
                 <div class="response-body">
                     <?= htmlspecialchars($c['response']) ?>
@@ -162,12 +152,11 @@ $tier_name = $c ? ($tiers[$c['tier']]['name'] ?? $c['tier']) : '';
             <hr style="border: none; border-top: 1px solid var(--border-subtle); margin-bottom: 32px;">
 
             <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-bottom: 24px;">
-                Esta respuesta es personal y confidencial. No ha sido generada por IA.<br>
-                Si necesitas aclaraciones puedes escribir a
-                <a href="mailto:<?= CONTACT_EMAIL ?>"><?= CONTACT_EMAIL ?></a>.
+                This response is personal and confidential. It has not been generated by AI.<br>
+                If you have questions, contact Colin via WhatsApp: +44 74 1507 2425
             </p>
             <div style="text-align: center;">
-                <a href="index.html" class="btn btn-secondary">← Volver al inicio</a>
+                <a href="index.html" class="btn btn-secondary">&larr; Back to homepage</a>
             </div>
 
         <?php endif; ?>
@@ -177,7 +166,7 @@ $tier_name = $c ? ($tiers[$c['tier']]['name'] ?? $c['tier']) : '';
 
 <footer class="site-footer">
     <div class="container footer-bottom">
-        &copy; JewelFAQ™ — The Jewellery Crafters. Birmingham, UK.
+        &copy; JewelFAQ&#8482; &mdash; Trademark of The Jewellery Crafters. Birmingham, UK.
     </div>
 </footer>
 

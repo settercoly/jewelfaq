@@ -20,11 +20,13 @@ function get_db(): PDO
             CREATE TABLE IF NOT EXISTS consultations (
                 id                TEXT PRIMARY KEY,
                 name              TEXT NOT NULL,
-                email             TEXT NOT NULL,
+                phone             TEXT,
+                email             TEXT,
                 message           TEXT NOT NULL,
                 form_type         TEXT NOT NULL DEFAULT 'general',
-                tier              TEXT NOT NULL,
-                amount            INTEGER NOT NULL,
+                status            TEXT NOT NULL DEFAULT 'pending_review',
+                tier              TEXT,
+                amount            INTEGER,
                 stripe_session_id TEXT,
                 payment_status    TEXT NOT NULL DEFAULT 'pending',
                 response          TEXT,
@@ -32,6 +34,17 @@ function get_db(): PDO
                 created_at        TEXT NOT NULL DEFAULT (datetime('now'))
             )
         ");
+        // Migrate older installations
+        foreach ([
+            "ALTER TABLE consultations ADD COLUMN phone TEXT",
+            "ALTER TABLE consultations ADD COLUMN status TEXT NOT NULL DEFAULT 'pending_review'",
+            "ALTER TABLE consultations ADD COLUMN payment_link TEXT",
+        ] as $migration) {
+            try { $db->exec($migration); } catch (Exception $e) { /* column already exists */ }
+        }
+        // Migrate legacy payment_status data into status column
+        $db->exec("UPDATE consultations SET status='answered' WHERE status='pending_review' AND payment_status='paid' AND response IS NOT NULL");
+        $db->exec("UPDATE consultations SET status='paid' WHERE status='pending_review' AND payment_status='paid' AND response IS NULL");
     }
     return $db;
 }

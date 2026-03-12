@@ -3,24 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JewelFAQ - Professional Jewellery Consultation</title>
-  <meta name="description" content="Expert jewellery consultation answered in 24 hours. 30 years of bench experience. No automation — only professional judgement.">
+  <title>JewelFAQ — Expert Jewellery Consultation</title>
+  <meta name="description" content="Send your jewellery case for free. 30 years of bench experience. Colin reviews it and gives you a clear, honest written opinion. You only pay if he can help.">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ── Fase 3 homepage overrides ─────────────────────── */
+    .f3-hero { background: var(--bg-dark); padding: 140px 0 100px; min-height: 100vh; display: flex; align-items: center; }
+    .f3-hero-grid { display: grid; grid-template-columns: 1fr; gap: 56px; align-items: center; }
+    @media (min-width: 900px) {
+      .f3-hero-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+    }
+    .f3-h1 { font-family: var(--font-display); font-size: clamp(52px, 6vw, 88px); font-weight: 600; color: var(--bg-cream); line-height: 1.02; letter-spacing: -0.01em; margin-bottom: 28px; }
+    .f3-h2 { font-family: var(--font-display); font-size: clamp(36px, 4vw, 60px); font-weight: 600; line-height: 1.05; letter-spacing: -0.01em; }
+    .f3-gold { color: var(--gold); }
+    .f3-trust { background: var(--bg-dark); border-top: 1px solid rgba(201,162,83,0.2); border-bottom: 1px solid rgba(201,162,83,0.2); padding: 28px 0; }
+    .f3-trust-inner { display: flex; flex-wrap: wrap; gap: 0; justify-content: center; }
+    .f3-trust-item { color: rgba(250,250,245,0.6); font-size: 13px; font-weight: 500; letter-spacing: .5px; text-transform: uppercase; padding: 8px 32px; border-right: 1px solid rgba(201,162,83,0.2); }
+    .f3-trust-item:last-child { border-right: none; }
+    .f3-trust-item strong { color: var(--gold); }
+    .f3-cream { background: var(--bg-cream); }
+    .f3-dark-section { background: var(--bg-dark); }
+    .f3-photo { width: 100%; aspect-ratio: 4/5; background: rgba(201,162,83,0.08); border: 1px solid rgba(201,162,83,0.15); border-radius: 24px; display: flex; align-items: center; justify-content: center; color: rgba(201,162,83,0.4); font-size: 13px; font-weight: 600; text-align: center; padding: 16px; }
+    .f3-photo-wide { aspect-ratio: 3/2; }
+    .f3-photo-sq { aspect-ratio: 1/1; }
+    .f3-step-num { width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--gold); color: var(--gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 32px; font-weight: 600; margin: 0 auto 24px; flex-shrink: 0; }
+    .f3-step-free { background: var(--gold); color: var(--bg-dark); border-color: var(--gold); }
+    .f3-stars { display: flex; gap: 3px; }
+    .f3-review-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,162,83,0.15); border-radius: 20px; padding: 32px; }
+    .f3-price-big { font-family: var(--font-display); font-size: 96px; font-weight: 700; color: var(--gold); line-height: 1; margin: 16px 0 8px; }
+    .f3-btn-gold { background: var(--gold); color: var(--bg-dark); font-weight: 700; border-radius: 100px; }
+    .f3-btn-gold:hover { background: #b8912e; transform: scale(1.02); }
+    .f3-btn-ghost { background: var(--gold-light); color: var(--gold); border: 1px solid var(--gold-border); border-radius: 100px; }
+    .f3-btn-ghost:hover { background: rgba(201,162,83,0.2); }
+    .f3-cta-dark { background: var(--bg-dark); }
+    .f3-header-dark .site-header { background: rgba(26,26,26,0.9) !important; }
+    label { display: block; font-size: 14px; font-weight: 500; color: var(--text-main); margin-bottom: 8px; }
+    input[type="tel"] { width: 100%; padding: 16px 20px; font-size: 16px; font-family: var(--font-system); color: var(--text-main); background-color: #f5f5f7; border: 1px solid transparent; border-radius: var(--radius-md); outline: none; transition: all var(--transition-smooth); }
+    input[type="tel"]:focus { background-color: #fff; border-color: var(--accent-digital); box-shadow: 0 0 0 4px var(--accent-light); }
+    .wa-btn { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #fff; border-radius: 100px; padding: 16px 32px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all .3s; }
+    .wa-btn:hover { background: #1da851; transform: scale(1.02); }
+    @media (max-width: 900px) {
+      .f3-trust-item { border-right: none; border-bottom: 1px solid rgba(201,162,83,0.15); width: 50%; text-align: center; }
+      .f3-trust-item:nth-child(odd) { border-right: 1px solid rgba(201,162,83,0.15); }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="site-header">
+  <header class="site-header" style="background: rgba(26,26,26,0.92); border-bottom-color: rgba(201,162,83,0.15);">
     <div class="container header-container">
-      <a href="index.html" class="logo">JewelFAQ</a>
+      <a href="index.html" class="logo" style="color: var(--bg-cream);">JewelFAQ</a>
       <nav class="nav-desktop">
-        <a href="individuals.html">Individuals</a>
-        <a href="jewellers-3d.html">Jewellers &amp; 3D</a>
-        <a href="students.html">Students</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="about.html">About Colin</a>
-        <a href="contact.html">Contact</a>
+        <a href="individuals.html" style="color: rgba(250,250,245,0.65);">Individuals</a>
+        <a href="jewellers-3d.html" style="color: rgba(250,250,245,0.65);">Jewellers &amp; 3D</a>
+        <a href="students.html" style="color: rgba(250,250,245,0.65);">Students</a>
+        <a href="pricing.html" style="color: rgba(250,250,245,0.65);">Pricing</a>
+        <a href="about.html" style="color: rgba(250,250,245,0.65);">About Colin</a>
+        <a href="contact.html" style="color: rgba(250,250,245,0.65);">Contact</a>
       </nav>
-      <button class="burger-btn" id="burger-btn" aria-label="Open menu">
+      <button class="burger-btn" id="burger-btn" aria-label="Open menu" style="color: var(--bg-cream);">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
         </svg>
@@ -40,144 +81,348 @@
 
   <main>
 
-    <!-- Hero -->
-    <section style="padding-top: 160px;">
-      <div class="container reveal">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
+    <!-- ═══════════════════════════════════════════════
+         1. HERO DARK
+    ═══════════════════════════════════════════════ -->
+    <section class="f3-hero">
+      <div class="container">
+        <div class="f3-hero-grid reveal">
+
+          <!-- Left -->
           <div>
-            <span class="color-accent" style="font-weight:600; letter-spacing:1px; text-transform:uppercase; font-size:14px; display:block; margin-bottom:24px;">JewelFAQ.com</span>
-            <h1 style="margin-bottom:32px;">Expert jewellery consultation answered in 24 hours.<br>No automation — only professional judgement.</h1>
-            <p class="lead" style="margin-bottom:48px;">Tell me your case. I'll review it with 30 years of bench experience and give you a realistic opinion so you can make decisions with confidence.</p>
-            <div style="display:flex; gap:16px; flex-wrap:wrap;">
-              <a href="#send-case" class="btn btn-primary">Send your case — free</a>
-              <a href="#como-funciona" class="btn btn-secondary">How it works</a>
+            <span style="color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 28px;">Professional Jewellery Consultation</span>
+            <h1 class="f3-h1">
+              Expert advice<br>from the bench.<br>
+              <span class="f3-gold">Not a chatbot.</span>
+            </h1>
+            <p style="color: rgba(250,250,245,0.65); font-size: 19px; line-height: 1.55; margin-bottom: 40px; max-width: 480px;">
+              Send your case for free. Colin reviews it with 30 years of hands-on experience and gives you a clear, honest written opinion — before you pay a penny.
+            </p>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;">
+              <a href="#send-case" class="btn f3-btn-gold">Send your case &mdash; free</a>
+              <a href="#como-funciona" class="btn f3-btn-ghost">How it works</a>
             </div>
-            <p style="margin-top:24px; font-size:14px; color:var(--text-muted); font-weight:500;">* No payment until Colin confirms he can help.</p>
+
+            <!-- Mini review -->
+            <div style="border-top: 1px solid rgba(201,162,83,0.2); padding-top: 28px;">
+              <div class="f3-stars" style="margin-bottom: 10px;">
+                <svg width="14" height="14" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="14" height="14" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="14" height="14" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="14" height="14" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="14" height="14" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span style="color: rgba(250,250,245,0.4); font-size: 12px; margin-left: 8px;">Google Review</span>
+              </div>
+              <p style="color: rgba(250,250,245,0.55); font-size: 14px; font-style: italic; margin: 0; line-height: 1.6; max-width: 420px;">
+                "Straight honest people who were able to demonstrate that there was an issue. First class service and genuinely passionate about what they do." — <strong style="color: rgba(250,250,245,0.75); font-style: normal;">Kev Lane</strong>
+              </p>
+            </div>
           </div>
+
+          <!-- Right: Photo -->
           <div>
-            <div style="width:100%; aspect-ratio:12/7; background:#E8E0D0; border-radius:16px; display:flex; align-items:center; justify-content:center; color:#9C8C7E; font-size:14px; font-weight:600; text-align:center; padding:16px;">
-              PHOTO — 1200×700<br>Colin at the bench / workshop
+            <div class="f3-photo" style="aspect-ratio: 4/5; max-width: 460px; margin: 0 auto;">
+              PHOTO — Colin at the bench<br>480 × 600
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Who it's for -->
-    <section>
-      <div class="container reveal">
-        <h2 class="text-center" style="margin-bottom:64px;">Who this is for</h2>
-        <div class="bento-grid col-3">
-
-          <div class="bento-card">
-            <div style="width:100%; aspect-ratio:4/3; background:#E8E0D0; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#9C8C7E; font-size:12px; font-weight:600; margin-bottom:24px;">
-              PHOTO — 400×300 — Jewellery close-up
-            </div>
-            <h3>Individuals</h3>
-            <p style="margin:16px 0 32px; flex-grow:1;">Who want a second opinion before accepting a repair quote, a purchase, or an important decision about a piece of jewellery.</p>
-            <a href="individuals.html" class="text-link">See the Individuals page
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-
-          <div class="bento-card">
-            <div style="width:100%; aspect-ratio:4/3; background:#E8E0D0; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#9C8C7E; font-size:12px; font-weight:600; margin-bottom:24px;">
-              PHOTO — 400×300 — STL / microscope
-            </div>
-            <h3>Jewellers &amp; 3D Designers</h3>
-            <p style="margin:16px 0 32px; flex-grow:1;">With technical questions, workflow problems or design issues that need a bench jeweller's eye — not a manufacturer's sales pitch.</p>
-            <a href="jewellers-3d.html" class="text-link">See the Jewellers &amp; 3D page
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-
-          <div class="bento-card dark">
-            <div style="width:100%; aspect-ratio:4/3; background:rgba(255,255,255,0.1); border-radius:10px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.4); font-size:12px; font-weight:600; margin-bottom:24px;">
-              PHOTO — 400×300 — Teaching / bench
-            </div>
-            <h3>Students &amp; Aspiring Jewellers</h3>
-            <p style="margin:16px 0 32px; flex-grow:1; color:var(--text-muted);">Who want real guidance while they learn — or while they're setting up their first workshop.</p>
-            <a href="students.html" class="text-link" style="color:#FFF;">See the Students page
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- How it works -->
-    <section id="como-funciona" style="background-color:#fff; padding:120px 0;">
-      <div class="container reveal">
-        <h2 class="text-center" style="margin-bottom:80px;">How it works</h2>
-        <div class="bento-grid col-3" style="gap:40px;">
-          <div style="text-align:center;">
-            <div style="width:64px; height:64px; border-radius:50%; background:var(--accent-light); color:var(--accent-digital); display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:700; margin:0 auto 24px;">1</div>
-            <p style="color:var(--text-main); font-weight:500;">Send your case — <strong>free, no payment required</strong>. Describe the piece, the problem, your question.</p>
-          </div>
-          <div style="text-align:center;">
-            <div style="width:64px; height:64px; border-radius:50%; background:var(--accent-light); color:var(--accent-digital); display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:700; margin:0 auto 24px;">2</div>
-            <p style="color:var(--text-main); font-weight:500;">Colin reviews your case and contacts you via WhatsApp to confirm he can help and sends you a £50 payment link.</p>
-          </div>
-          <div style="text-align:center;">
-            <div style="width:64px; height:64px; border-radius:50%; background:var(--accent-light); color:var(--accent-digital); display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:700; margin:0 auto 24px;">3</div>
-            <p style="color:var(--text-main); font-weight:500;">After payment, you receive a clear written professional opinion within 24 hours.</p>
-          </div>
+    <!-- ═══════════════════════════════════════════════
+         2. TRUST STRIP
+    ═══════════════════════════════════════════════ -->
+    <div class="f3-trust">
+      <div class="container">
+        <div class="f3-trust-inner">
+          <div class="f3-trust-item"><strong>30 years</strong> at the bench</div>
+          <div class="f3-trust-item"><strong>Birmingham</strong> Jewellery Quarter</div>
+          <div class="f3-trust-item"><strong>Diamond</strong> Setting School</div>
+          <div class="f3-trust-item"><strong>YouTube</strong> @jewellerymadebyhand</div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Testimonials -->
-    <section style="background-color:var(--bg-surface); padding:80px 0;">
+    <!-- ═══════════════════════════════════════════════
+         3. WHO IT'S FOR
+    ═══════════════════════════════════════════════ -->
+    <section class="f3-cream">
       <div class="container reveal">
-        <h2 class="text-center" style="margin-bottom:16px;">What clients say</h2>
-        <p class="text-center" style="color:var(--text-muted); font-size:14px; margin-bottom:64px;">From our Google reviews — <a href="https://maps.app.goo.gl/s3uboYck88MHszB18" target="_blank" class="text-link" style="font-size:14px;">see all reviews</a></p>
-        <div class="bento-grid col-3" style="gap:32px;">
+        <h2 class="f3-h2 text-center" style="margin-bottom: 16px; color: var(--text-main);">Who this is for</h2>
+        <p class="text-center" style="color: var(--text-muted); margin-bottom: 64px; max-width: 600px; margin-left: auto; margin-right: auto;">Whether you own jewellery, make it, or are learning the craft — there is a place for you here.</p>
+        <div class="bento-grid col-3" style="gap: 28px;">
 
-          <div class="bento-card" style="box-shadow:none; border:1px solid var(--border-subtle); background:var(--bg-body);">
-            <div style="display:flex; gap:4px; margin-bottom:16px;">
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <p style="color:var(--text-main); line-height:1.7; font-style:italic; margin-bottom:16px;">"Can't recommend Andrea and Colin enough. Unbelievable workmanship. Extremely talented and you can really rely on what advice they give. More than 5 stars."</p>
-            <p style="font-weight:600; font-size:14px; color:var(--text-muted);">Jennifer Smith &middot; Google Review</p>
+          <div class="bento-card" style="background: #fff;">
+            <div class="f3-photo f3-photo-wide" style="margin-bottom: 28px;">PHOTO — 480×320<br>Jewellery / repair close-up</div>
+            <h3 style="font-family: var(--font-display); font-size: 28px; font-weight: 600; color: var(--text-main);">Individuals</h3>
+            <p style="margin: 12px 0 28px; color: var(--text-muted); flex-grow: 1; line-height: 1.7;">A second opinion before accepting a repair quote, a purchase, or an important decision about a piece you care about.</p>
+            <a href="individuals.html" class="text-link">See what I help with &rarr;</a>
           </div>
 
-          <div class="bento-card" style="box-shadow:none; border:1px solid var(--border-subtle); background:var(--bg-body);">
-            <div style="display:flex; gap:4px; margin-bottom:16px;">
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <p style="color:var(--text-main); line-height:1.7; font-style:italic; margin-bottom:16px;">"Straight honest people who not only spoke to you about the problem — they were able to demonstrate that there was an issue. First class service and genuinely passionate about what they do."</p>
-            <p style="font-weight:600; font-size:14px; color:var(--text-muted);">Kev Lane &middot; Google Review</p>
+          <div class="bento-card" style="background: var(--bg-dark); border-color: rgba(201,162,83,0.15);">
+            <div class="f3-photo f3-photo-wide" style="margin-bottom: 28px;">PHOTO — 480×320<br>STL / 3D design</div>
+            <h3 style="font-family: var(--font-display); font-size: 28px; font-weight: 600; color: var(--bg-cream);">Jewellers &amp; 3D</h3>
+            <p style="margin: 12px 0 28px; color: rgba(250,250,245,0.55); flex-grow: 1; line-height: 1.7;">Technical questions, STL reviews, workflow problems — a bench jeweller's eye, not a manufacturer's sales pitch.</p>
+            <a href="jewellers-3d.html" class="text-link" style="color: var(--gold);">See what I help with &rarr;</a>
           </div>
 
-          <div class="bento-card" style="box-shadow:none; border:1px solid var(--border-subtle); background:var(--bg-body);">
-            <div style="display:flex; gap:4px; margin-bottom:16px;">
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <p style="color:var(--text-main); line-height:1.7; font-style:italic; margin-bottom:16px;">"Excellent communication every step of the way. Colin's work is outstanding. We could not be happier with the results."</p>
-            <p style="font-weight:600; font-size:14px; color:var(--text-muted);">Paul Tiltman &middot; Google Review</p>
+          <div class="bento-card" style="background: #fff;">
+            <div class="f3-photo f3-photo-wide" style="margin-bottom: 28px;">PHOTO — 480×320<br>Teaching / workshop</div>
+            <h3 style="font-family: var(--font-display); font-size: 28px; font-weight: 600; color: var(--text-main);">Students</h3>
+            <p style="margin: 12px 0 28px; color: var(--text-muted); flex-grow: 1; line-height: 1.7;">Real guidance while you learn or set up your first workshop. Straight answers from someone who has done it all from scratch.</p>
+            <a href="students.html" class="text-link">See what I help with &rarr;</a>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section>
+    <!-- ═══════════════════════════════════════════════
+         4. HOW IT WORKS
+    ═══════════════════════════════════════════════ -->
+    <section id="como-funciona" style="background: #fff;">
       <div class="container reveal">
-        <h2 class="text-center" style="margin-bottom:64px;">Frequently Asked Questions</h2>
+        <h2 class="f3-h2 text-center" style="margin-bottom: 16px; color: var(--text-main);">How it works</h2>
+        <p class="text-center" style="color: var(--text-muted); margin-bottom: 72px;">Three steps. The first one costs nothing.</p>
+
+        <div class="bento-grid col-3" style="gap: 48px;">
+          <div style="text-align: center;">
+            <div class="f3-step-num f3-step-free">FREE</div>
+            <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--text-main);">Send your case</h3>
+            <p style="color: var(--text-muted); line-height: 1.7;">Describe your piece, the question, what you've been told, what concerns you. No payment, no obligation.</p>
+          </div>
+          <div style="text-align: center;">
+            <div class="f3-step-num">2</div>
+            <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--text-main);">Colin reviews it</h3>
+            <p style="color: var(--text-muted); line-height: 1.7;">Colin reads your case and contacts you via WhatsApp. If he can help, he sends a secure £50 payment link. If not — no charge.</p>
+          </div>
+          <div style="text-align: center;">
+            <div class="f3-step-num">3</div>
+            <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--text-main);">Get your answer</h3>
+            <p style="color: var(--text-muted); line-height: 1.7;">Within 24 hours of payment you receive a clear, written professional opinion — honest, direct, no fluff.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 56px;">
+          <a href="#send-case" class="btn f3-btn-gold">Send your case — free &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         5. ABOUT COLIN
+    ═══════════════════════════════════════════════ -->
+    <section class="f3-dark-section">
+      <div class="container reveal">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 64px; align-items: center;">
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+            <div class="f3-photo" style="aspect-ratio: 4/5; max-height: 520px;">PHOTO — Colin portrait<br>400 × 500</div>
+            <div>
+              <span style="color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 20px;">About Colin</span>
+              <h2 class="f3-h2" style="color: var(--bg-cream); margin-bottom: 24px;">30 years at the bench. No theory.</h2>
+              <p style="color: rgba(250,250,245,0.65); line-height: 1.8; margin-bottom: 20px;">I'm a bench jeweller and teacher based in Birmingham's Jewellery Quarter. I've done repairs, remodelling, diamond setting, handmade commissions, and trained students and professionals since the early 90s.</p>
+              <p style="color: rgba(250,250,245,0.65); line-height: 1.8; margin-bottom: 32px;">JewelFAQ is my way of giving you the honest technical judgement I'd give a friend — independent of any commercial interest, based only on what I've seen and done at the bench.</p>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                  <span style="color: var(--gold); margin-top: 2px;">&#10003;</span>
+                  <span style="color: rgba(250,250,245,0.7); font-size: 15px;">Independent — no commercial interests or referrals</span>
+                </div>
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                  <span style="color: var(--gold); margin-top: 2px;">&#10003;</span>
+                  <span style="color: rgba(250,250,245,0.7); font-size: 15px;">Honest answers, even when they're not what you want to hear</span>
+                </div>
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                  <span style="color: var(--gold); margin-top: 2px;">&#10003;</span>
+                  <span style="color: rgba(250,250,245,0.7); font-size: 15px;">Diamond Setting School founder &amp; YouTube educator</span>
+                </div>
+              </div>
+              <div style="margin-top: 36px;">
+                <a href="about.html" class="btn f3-btn-ghost">Read about Colin &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         6. TESTIMONIALS
+    ═══════════════════════════════════════════════ -->
+    <section class="f3-dark-section" style="border-top: 1px solid rgba(201,162,83,0.1);">
+      <div class="container reveal">
+        <h2 class="f3-h2 text-center" style="color: var(--bg-cream); margin-bottom: 12px;">What clients say</h2>
+        <p class="text-center" style="color: rgba(250,250,245,0.4); font-size: 14px; margin-bottom: 56px;">From our Google reviews &mdash; <a href="https://maps.app.goo.gl/s3uboYck88MHszB18" target="_blank" style="color: var(--gold); text-decoration: none; font-size: 14px;">see all</a></p>
+
+        <div class="bento-grid col-3" style="gap: 24px;">
+
+          <div class="f3-review-card">
+            <div class="f3-stars" style="margin-bottom: 20px;">
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p style="color: rgba(250,250,245,0.75); line-height: 1.75; font-style: italic; font-size: 15px; margin-bottom: 20px;">"Can't recommend Andrea and Colin enough. Unbelievable workmanship. Extremely talented and you can really rely on what advice they give. More than 5 stars."</p>
+            <p style="font-weight: 600; font-size: 13px; color: var(--gold); margin: 0;">Jennifer Smith &middot; Google Review</p>
+          </div>
+
+          <div class="f3-review-card" style="border-color: rgba(201,162,83,0.3); background: rgba(201,162,83,0.05);">
+            <div class="f3-stars" style="margin-bottom: 20px;">
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p style="color: rgba(250,250,245,0.75); line-height: 1.75; font-style: italic; font-size: 15px; margin-bottom: 20px;">"Straight honest people who not only spoke to you about the problem — they were able to demonstrate that there was an issue. First class service and genuinely passionate about what they do."</p>
+            <p style="font-weight: 600; font-size: 13px; color: var(--gold); margin: 0;">Kev Lane &middot; Google Review</p>
+          </div>
+
+          <div class="f3-review-card">
+            <div class="f3-stars" style="margin-bottom: 20px;">
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p style="color: rgba(250,250,245,0.75); line-height: 1.75; font-style: italic; font-size: 15px; margin-bottom: 20px;">"Excellent communication every step of the way. Colin's work is outstanding. We could not be happier with the results."</p>
+            <p style="font-weight: 600; font-size: 13px; color: var(--gold); margin: 0;">Paul Tiltman &middot; Google Review</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         7. PRICING
+    ═══════════════════════════════════════════════ -->
+    <section class="f3-cream">
+      <div class="container reveal">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+
+          <!-- Left: Single consultation -->
+          <div>
+            <span style="color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 16px;">Pricing</span>
+            <h2 class="f3-h2" style="color: var(--text-main); margin-bottom: 8px;">Simple. Clear.</h2>
+            <div class="f3-price-big">£50</div>
+            <p style="color: var(--text-muted); font-size: 18px; margin-bottom: 32px;">per consultation</p>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px;">
+              <li style="display: flex; gap: 14px; align-items: flex-start; color: var(--text-main);">
+                <span style="color: var(--accent-digital); flex-shrink: 0; margin-top: 2px;">&#10003;</span>
+                Send your case first &mdash; <strong>free, no payment today</strong>
+              </li>
+              <li style="display: flex; gap: 14px; align-items: flex-start; color: var(--text-main);">
+                <span style="color: var(--accent-digital); flex-shrink: 0; margin-top: 2px;">&#10003;</span>
+                Pay only if Colin confirms he can help
+              </li>
+              <li style="display: flex; gap: 14px; align-items: flex-start; color: var(--text-main);">
+                <span style="color: var(--accent-digital); flex-shrink: 0; margin-top: 2px;">&#10003;</span>
+                Written professional opinion within 24 hours
+              </li>
+              <li style="display: flex; gap: 14px; align-items: flex-start; color: var(--text-main);">
+                <span style="color: var(--accent-digital); flex-shrink: 0; margin-top: 2px;">&#10003;</span>
+                Valid for individuals, jewellers, 3D designers and students
+              </li>
+            </ul>
+            <a href="#send-case" class="btn btn-primary">Start a consultation &rarr;</a>
+          </div>
+
+          <!-- Right: Packs -->
+          <div>
+            <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 24px; color: var(--text-main);">Consultation packs</h3>
+            <p style="color: var(--text-muted); margin-bottom: 32px; line-height: 1.7;">For regular use. Buy a pack and use consultations when you need them — no expiry pressure.</p>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 24px 28px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-weight: 700; font-size: 17px; color: var(--text-main);">5 Consultations</div>
+                  <div style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">£40 each &mdash; save £50</div>
+                </div>
+                <div style="font-size: 28px; font-weight: 800; color: var(--text-main);">£200</div>
+              </div>
+              <div style="background: var(--text-main); border-radius: 16px; padding: 24px 28px; display: flex; justify-content: space-between; align-items: center; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; right: 24px; background: var(--gold); color: var(--bg-dark); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 0 0 6px 6px;">Popular</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 17px; color: #fff;">10 Consultations</div>
+                  <div style="color: rgba(255,255,255,0.5); font-size: 13px; margin-top: 4px;">£35 each &mdash; save £150</div>
+                </div>
+                <div style="font-size: 28px; font-weight: 800; color: #fff;">£350</div>
+              </div>
+              <div style="background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 24px 28px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-weight: 700; font-size: 17px; color: var(--text-main);">100+ Consultations</div>
+                  <div style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">Workshops &amp; studios</div>
+                </div>
+                <a href="contact.html" style="font-size: 15px; font-weight: 700; color: var(--accent-digital); text-decoration: none;">Contact</a>
+              </div>
+            </div>
+            <p style="margin-top: 20px; font-size: 13px; color: var(--text-muted);">Packs valid for 12 months from purchase. <a href="pricing.html" style="color: var(--accent-digital);">Full pricing &amp; terms &rarr;</a></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         8. FORM
+    ═══════════════════════════════════════════════ -->
+    <section id="send-case" style="background: #fff; border-top: 1px solid var(--border-subtle);">
+      <div class="container reveal">
+        <div style="max-width: 680px; margin: 0 auto;">
+          <h2 class="f3-h2 text-center" style="color: var(--text-main); margin-bottom: 12px;">Send your case</h2>
+          <p class="text-center" style="color: var(--text-muted); margin-bottom: 48px;">Free. No payment until Colin confirms he can help.</p>
+
+          <div class="form-bento">
+            <form action="submit.php" method="POST">
+              <input type="hidden" name="form_type" value="general">
+
+              <div class="bento-grid" style="gap: 24px; margin-bottom: 24px;">
+                <div>
+                  <label for="h-name">Name</label>
+                  <input type="text" id="h-name" name="name" required placeholder="Your name">
+                </div>
+                <div>
+                  <label for="h-phone">WhatsApp number</label>
+                  <input type="tel" id="h-phone" name="phone" required placeholder="+44 ...">
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 24px;">
+                <label for="h-type">I am a</label>
+                <select id="h-type" name="form_type" style="width:100%; padding:12px 16px; border:1.5px solid var(--border-subtle); border-radius:10px; font-size:15px; background:var(--bg-body); color:var(--text-main); font-family:inherit;">
+                  <option value="individual">Individual / Private client</option>
+                  <option value="jeweller">Jeweller or 3D designer</option>
+                  <option value="student">Student or aspiring jeweller</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="h-mensaje">Your case</label>
+                <textarea id="h-mensaje" name="mensaje" required placeholder="Describe your piece, the question you have, what you've been told, what concerns you…"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%; margin-top:24px;">
+                Send your case &mdash; free, no payment now &rarr;
+              </button>
+              <p style="text-align:center; font-size:12px; color:var(--text-muted); margin-top:10px;">
+                Colin will review and contact you via WhatsApp. You only pay if he can help.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         9. FAQ
+    ═══════════════════════════════════════════════ -->
+    <section class="f3-cream">
+      <div class="container reveal">
+        <h2 class="f3-h2 text-center" style="color: var(--text-main); margin-bottom: 56px;">Frequently Asked Questions</h2>
         <div class="faq-grid">
 
           <div class="accordion">
@@ -238,99 +483,71 @@
       </div>
     </section>
 
-    <!-- Send your case — homepage form -->
-    <section id="send-case" style="background-color:var(--bg-surface); border-top:1px solid var(--border-subtle); padding:80px 0 120px;">
-      <div class="container reveal">
-        <h2 class="text-center" style="margin-bottom:16px;">Send your case</h2>
-        <p class="text-center" style="color:var(--text-muted); margin-bottom:48px;">Free. No payment until Colin confirms he can help.</p>
-
-        <div class="form-bento" style="max-width:640px; margin:0 auto;">
-          <form action="submit.php" method="POST">
-            <input type="hidden" name="form_type" value="general">
-
-            <div class="bento-grid" style="gap:24px; margin-bottom:24px;">
-              <div>
-                <label for="h-name">Name</label>
-                <input type="text" id="h-name" name="name" required>
-              </div>
-              <div>
-                <label for="h-email">Email</label>
-                <input type="email" id="h-email" name="email" required>
-              </div>
-            </div>
-
-            <div class="form-group" style="margin-bottom:24px;">
-              <label for="h-type">I am a</label>
-              <select id="h-type" name="form_type" style="width:100%; padding:12px 16px; border:1.5px solid var(--border-subtle); border-radius:10px; font-size:15px; background:var(--bg-body); color:var(--text-main); font-family:inherit;">
-                <option value="individual">Individual / Private client</option>
-                <option value="jeweller">Jeweller or 3D designer</option>
-                <option value="student">Student or aspiring jeweller</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="h-mensaje">Your case</label>
-              <textarea id="h-mensaje" name="mensaje" required placeholder="Describe your piece, the question you have, what you've been told, what concerns you…"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width:100%; margin-top:24px;">
-              Send your case &mdash; free, no payment now &rarr;
-            </button>
-            <p style="text-align:center; font-size:12px; color:var(--text-muted); margin-top:10px;">
-              Colin will review and contact you via WhatsApp. You only pay if he can help.
-            </p>
-          </form>
+    <!-- ═══════════════════════════════════════════════
+         10. FINAL CTA DARK
+    ═══════════════════════════════════════════════ -->
+    <section class="f3-dark-section">
+      <div class="container reveal" style="text-align: center;">
+        <span style="color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 24px;">Ready?</span>
+        <h2 class="f3-h2" style="color: var(--bg-cream); margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">Get the expert opinion you need.</h2>
+        <p style="color: rgba(250,250,245,0.55); font-size: 18px; margin-bottom: 48px; max-width: 500px; margin-left: auto; margin-right: auto;">Send your case for free. No payment until Colin confirms he can help.</p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+          <a href="#send-case" class="btn f3-btn-gold">Send your case &mdash; free &rarr;</a>
+          <a href="https://wa.me/447415072425?text=Hi+Colin,+I'd+like+to+ask+about+a+consultation" target="_blank" class="wa-btn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Colin
+          </a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" style="background: #111; border-top-color: rgba(201,162,83,0.15);">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <h4>JewelFAQ</h4>
-        <p style="color:var(--text-muted); font-size:14px;">Technical jewellery consultancy.</p>
+        <h4 style="color: var(--bg-cream);">JewelFAQ</h4>
+        <p style="color: rgba(250,250,245,0.35); font-size: 14px;">Technical jewellery consultancy.</p>
       </div>
       <div class="footer-col">
-        <h5>Services</h5>
+        <h5 style="color: rgba(250,250,245,0.5);">Services</h5>
         <ul>
-          <li><a href="individuals.html">Individuals</a></li>
-          <li><a href="jewellers-3d.html">Jewellers &amp; 3D</a></li>
-          <li><a href="students.html">Students</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="individuals.html" style="color: rgba(250,250,245,0.4);">Individuals</a></li>
+          <li><a href="jewellers-3d.html" style="color: rgba(250,250,245,0.4);">Jewellers &amp; 3D</a></li>
+          <li><a href="students.html" style="color: rgba(250,250,245,0.4);">Students</a></li>
+          <li><a href="pricing.html" style="color: rgba(250,250,245,0.4);">Pricing</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Legal</h5>
+        <h5 style="color: rgba(250,250,245,0.5);">Legal</h5>
         <ul>
-          <li><a href="#" onclick="document.getElementById('modal-privacy').style.display='flex';return false;">Privacy Policy</a></li>
-          <li><a href="#" onclick="document.getElementById('modal-terms').style.display='flex';return false;">Terms &amp; Conditions</a></li>
-          <li><a href="contact.html">Anti-Fraud Notice</a></li>
+          <li><a href="#" onclick="document.getElementById('modal-privacy').style.display='flex';return false;" style="color: rgba(250,250,245,0.4);">Privacy Policy</a></li>
+          <li><a href="#" onclick="document.getElementById('modal-terms').style.display='flex';return false;" style="color: rgba(250,250,245,0.4);">Terms &amp; Conditions</a></li>
+          <li><a href="contact.html" style="color: rgba(250,250,245,0.4);">Anti-Fraud Notice</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>About</h5>
+        <h5 style="color: rgba(250,250,245,0.5);">About</h5>
         <ul>
-          <li><a href="about.html">About Colin</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html" style="color: rgba(250,250,245,0.4);">About Colin</a></li>
+          <li><a href="contact.html" style="color: rgba(250,250,245,0.4);">Contact</a></li>
         </ul>
       </div>
     </div>
-    <div class="container footer-bottom">
+    <div class="container footer-bottom" style="border-top-color: rgba(201,162,83,0.1); color: rgba(250,250,245,0.25);">
       &copy; JewelFAQ&#8482; &mdash; The Jewellery Crafters, Birmingham, UK.
     </div>
   </footer>
 
   <!-- Privacy Policy Modal -->
-  <div id="modal-privacy" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.65); z-index:9000; align-items:flex-start; justify-content:center; padding:40px 24px; overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
+  <div id="modal-privacy" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:9000; align-items:flex-start; justify-content:center; padding:40px 24px; overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
     <div style="background:#fff; border-radius:16px; max-width:640px; width:100%; padding:40px; position:relative; margin:auto;">
       <button onclick="document.getElementById('modal-privacy').style.display='none'" style="position:absolute;top:16px;right:20px;font-size:28px;background:none;border:none;cursor:pointer;color:#6b7280;line-height:1;">&times;</button>
       <h2 style="margin-bottom:8px;">Privacy Policy</h2>
       <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;">Last updated: March 2026</p>
       <div style="line-height:1.9;color:var(--text-main);font-size:15px;">
         <p><strong>Who we are:</strong> JewelFAQ, trading as The Jewellery Crafters, Birmingham, UK.</p>
-        <p style="margin-top:14px;"><strong>What we collect:</strong> Your name, email address, and the description of your jewellery case when you submit a consultation request.</p>
+        <p style="margin-top:14px;"><strong>What we collect:</strong> Your name, WhatsApp number, and the description of your jewellery case when you submit a consultation request.</p>
         <p style="margin-top:14px;"><strong>Why we collect it:</strong> To provide the consultation service you requested, and to contact you about your case via WhatsApp.</p>
         <p style="margin-top:14px;"><strong>Retention:</strong> Your data is kept for up to 12 months from the date of your consultation, then deleted.</p>
         <p style="margin-top:14px;"><strong>Payments:</strong> Card payments are processed by Stripe, Inc. JewelFAQ does not store or have access to your card details.</p>
@@ -341,7 +558,7 @@
   </div>
 
   <!-- Terms & Conditions Modal -->
-  <div id="modal-terms" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.65); z-index:9000; align-items:flex-start; justify-content:center; padding:40px 24px; overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
+  <div id="modal-terms" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:9000; align-items:flex-start; justify-content:center; padding:40px 24px; overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
     <div style="background:#fff; border-radius:16px; max-width:640px; width:100%; padding:40px; position:relative; margin:auto;">
       <button onclick="document.getElementById('modal-terms').style.display='none'" style="position:absolute;top:16px;right:20px;font-size:28px;background:none;border:none;cursor:pointer;color:#6b7280;line-height:1;">&times;</button>
       <h2 style="margin-bottom:8px;">Terms &amp; Conditions</h2>
@@ -354,7 +571,6 @@
         <p style="margin-top:14px;"><strong>Scope:</strong> Each consultation covers one defined case or question. New topics arising from the response are treated as a new consultation.</p>
         <p style="margin-top:14px;"><strong>Refunds:</strong> If Colin determines he cannot help with your case after payment has been made, a full refund will be issued.</p>
         <p style="margin-top:14px;"><strong>Format:</strong> Written answers only. No phone calls or video calls are included in any plan.</p>
-        <p style="margin-top:14px;"><strong>Availability:</strong> Open to clients worldwide.</p>
         <p style="margin-top:14px;"><strong>Governing law:</strong> England &amp; Wales.</p>
         <p style="margin-top:14px;"><strong>Business:</strong> Trading as JewelFAQ &mdash; The Jewellery Crafters, Birmingham, UK. (Ltd registration pending April 2026.)</p>
       </div>

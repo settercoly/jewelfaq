@@ -38,6 +38,7 @@ function get_db(): PDO
         foreach ([
             "ALTER TABLE consultations ADD COLUMN phone TEXT",
             "ALTER TABLE consultations ADD COLUMN status TEXT NOT NULL DEFAULT 'pending_review'",
+            "ALTER TABLE consultations ADD COLUMN payment_link TEXT",
         ] as $migration) {
             try { $db->exec($migration); } catch (Exception $e) { /* column already exists */ }
         }

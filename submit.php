@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -24,6 +25,21 @@ $stmt = $db->prepare("
     VALUES (?, ?, ?, ?, ?, 'pending_review', 'pending')
 ");
 $stmt->execute([$id, $name, $phone, $message, $form_type]);
+
+// Send notification email to Colin
+$subject = "New JewelFAQ Case: $name — $form_type";
+$email_body = "A new consultation request has been submitted:\n\n";
+$email_body .= "Name: $name\n";
+$email_body .= "WhatsApp: $phone\n";
+$email_body .= "Type: $form_type\n";
+$email_body .= "Case ID: $id\n\n";
+$email_body .= "Message:\n$message\n\n";
+$email_body .= "Review and respond in the admin panel: " . SITE_URL . "/admin.php";
+
+$headers = "From: noreply@" . parse_url(SITE_URL, PHP_URL_HOST) . "\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+@mail(CONTACT_EMAIL, $subject, $email_body, $headers);
 
 header('Location: thank-you.html');
 exit;

@@ -110,6 +110,45 @@ function stripe_get_session(string $session_id): array
 }
 
 /**
+ * Refund a Stripe payment via session ID.
+ * Returns ['ok' => bool, 'error' => ?string, 'refund_id' => ?string].
+ */
+function refund_stripe_payment(string $stripe_session_id): array
+{
+    // Get the session to find the payment_intent
+    $session = stripe_request('GET', 'checkout/sessions/' . urlencode($stripe_session_id));
+    if (!$session['ok'] || !isset($session['data']['payment_intent'])) {
+        return ['ok' => false, 'error' => 'Session not found or no payment intent', 'refund_id' => null];
+    }
+
+    $payment_intent_id = $session['data']['payment_intent'];
+
+    // Get the payment intent to find the charge
+    $intent = stripe_request('GET', 'payment_intents/' . urlencode($payment_intent_id));
+    if (!$intent['ok'] || !isset($intent['data']['charges']['data'][0]['id'])) {
+        return ['ok' => false, 'error' => 'Payment intent not found or no charge', 'refund_id' => null];
+    }
+
+    $charge_id = $intent['data']['charges']['data'][0]['id'];
+
+    // Create the refund
+    $result = stripe_request('POST', 'refunds', [
+        'charge' => $charge_id,
+    ]);
+
+    if (!$result['ok']) {
+        $error = $result['data']['error']['message'] ?? 'Unknown refund error';
+        return ['ok' => false, 'error' => $error, 'refund_id' => null];
+    }
+
+    return [
+        'ok'        => true,
+        'error'     => null,
+        'refund_id' => $result['data']['id'],
+    ];
+}
+
+/**
  * Verify a Stripe webhook signature.
  * Returns the decoded event array, or false if invalid.
  */

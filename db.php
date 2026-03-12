@@ -28,9 +28,11 @@ function get_db(): PDO
                 tier              TEXT,
                 amount            INTEGER,
                 stripe_session_id TEXT,
+                payment_link      TEXT,
                 payment_status    TEXT NOT NULL DEFAULT 'pending',
                 response          TEXT,
                 response_date     TEXT,
+                refund_id         TEXT,
                 created_at        TEXT NOT NULL DEFAULT (datetime('now'))
             )
         ");
@@ -39,6 +41,7 @@ function get_db(): PDO
             "ALTER TABLE consultations ADD COLUMN phone TEXT",
             "ALTER TABLE consultations ADD COLUMN status TEXT NOT NULL DEFAULT 'pending_review'",
             "ALTER TABLE consultations ADD COLUMN payment_link TEXT",
+            "ALTER TABLE consultations ADD COLUMN refund_id TEXT",
         ] as $migration) {
             try { $db->exec($migration); } catch (Exception $e) { /* column already exists */ }
         }

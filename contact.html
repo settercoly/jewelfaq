@@ -156,13 +156,15 @@
                     <li><a href="individuals.html">Individuals</a></li>
                     <li><a href="jewellers-3d.html">Jewellers &amp; 3D</a></li>
                     <li><a href="students.html">Students</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h5>Policies</h5>
+                <h5>Legal</h5>
                 <ul>
-                    <li><a href="contact.html">Legal Notice</a></li>
-                    <li><a href="contact.html">Anti-Fraud Policy</a></li>
+                    <li><a href="#" onclick="document.getElementById('modal-privacy').style.display='flex';return false;">Privacy Policy</a></li>
+                    <li><a href="#" onclick="document.getElementById('modal-terms').style.display='flex';return false;">Terms &amp; Conditions</a></li>
+                    <li><a href="contact.html">Anti-Fraud Notice</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -177,6 +179,44 @@
             &copy; JewelFAQ&#8482; &mdash; Trademark of The Jewellery Crafters. Birmingham, UK.
         </div>
     </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="modal-privacy" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:9000; align-items:flex-start; justify-content:center; padding:40px 24px; overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
+        <div style="background:#fff; border-radius:16px; max-width:640px; width:100%; padding:40px; position:relative; margin:auto;">
+            <button onclick="document.getElementById('modal-privacy').style.display='none'" style="position:absolute;top:16px;right:20px;font-size:28px;background:none;border:none;cursor:pointer;color:#6b7280;line-height:1;">&times;</button>
+            <h2 style="margin-bottom:8px;">Privacy Policy</h2>
+            <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;">Last updated: March 2026</p>
+            <div style="line-height:1.9;color:var(--text-main);font-size:15px;">
+                <p><strong>Who we are:</strong> JewelFAQ, trading as The Jewellery Crafters, Birmingham, UK.</p>
+                <p style="margin-top:14px;"><strong>What we collect:</strong> Your name, WhatsApp number, and the description of your jewellery case when you submit a consultation request.</p>
+                <p style="margin-top:14px;"><strong>Why we collect it:</strong> To provide the consultation service you requested, and to contact you about your case via WhatsApp.</p>
+                <p style="margin-top:14px;"><strong>Retention:</strong> Your data is kept for up to 12 months from the date of your consultation, then deleted.</p>
+                <p style="margin-top:14px;"><strong>Payments:</strong> Card payments are processed by Stripe, Inc. JewelFAQ does not store or have access to your card details.</p>
+                <p style="margin-top:14px;"><strong>Your rights (UK GDPR):</strong> You have the right to access, correct or delete your personal data at any time. Contact us via WhatsApp (+44 74 1507 2425) to exercise these rights.</p>
+                <p style="margin-top:14px;"><strong>Third parties:</strong> We do not sell or share your personal data with any third parties, except Stripe for payment processing.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="modal-terms" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:9000; align-items:flex-start; justify-content:center; padding:40px 24px; overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
+        <div style="background:#fff; border-radius:16px; max-width:640px; width:100%; padding:40px; position:relative; margin:auto;">
+            <button onclick="document.getElementById('modal-terms').style.display='none'" style="position:absolute;top:16px;right:20px;font-size:28px;background:none;border:none;cursor:pointer;color:#6b7280;line-height:1;">&times;</button>
+            <h2 style="margin-bottom:8px;">Terms &amp; Conditions</h2>
+            <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;">Last updated: March 2026</p>
+            <div style="line-height:1.9;color:var(--text-main);font-size:15px;">
+                <p><strong>The service:</strong> JewelFAQ provides written jewellery consultation by Colin, a bench jeweller with 30 years of experience. This is a professional opinion — not an official valuation, insurance appraisal, or legal document.</p>
+                <p style="margin-top:14px;"><strong>Price:</strong> £50 per standard consultation, paid via Stripe.</p>
+                <p style="margin-top:14px;"><strong>How it works:</strong> You submit your case for free. Colin reviews it and confirms whether he can help. A payment link is sent only after confirmation. You are never charged for a case Colin cannot address.</p>
+                <p style="margin-top:14px;"><strong>Turnaround:</strong> Written answer delivered within 24 hours of payment confirmation.</p>
+                <p style="margin-top:14px;"><strong>Scope:</strong> Each consultation covers one defined case or question. New topics arising from the response are treated as a new consultation.</p>
+                <p style="margin-top:14px;"><strong>Refunds:</strong> If Colin determines he cannot help with your case after payment has been made, a full refund will be issued.</p>
+                <p style="margin-top:14px;"><strong>Format:</strong> Written answers only. No phone calls or video calls are included in any plan.</p>
+                <p style="margin-top:14px;"><strong>Governing law:</strong> England &amp; Wales.</p>
+                <p style="margin-top:14px;"><strong>Business:</strong> Trading as JewelFAQ &mdash; The Jewellery Crafters, Birmingham, UK. (Ltd registration pending April 2026.)</p>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/script.js"></script>
 </body>

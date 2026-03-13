@@ -186,6 +186,10 @@ section {
   margin-bottom: 0;
 }
 
+.bento-card.text-center {
+  align-items: center;
+}
+
 .bento-card.dark {
   background: var(--text-main);
   color: var(--text-inverse);

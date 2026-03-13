@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JewelFAQ — Expert Jewellery Consultation</title>
-  <meta name="description" content="Send your jewellery case for free. 30 years of bench experience. Colin reviews it and gives you a clear, honest written opinion. You only pay if he can help.">
+  <title>JewelFAQ &mdash; Expert Jewellery Consultation</title>
+  <meta name="description" content="One-to-one jewellery consultation from a working bench jeweller in Birmingham's Jewellery Quarter. Send your case free. You only pay if Colin confirms he can help.">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* ── Fase 3 homepage overrides ─────────────────────── */
+    /* ── Homepage overrides ─────────────────────── */
     .f3-hero { background: var(--bg-dark); padding: 140px 0 100px; min-height: 100vh; display: flex; align-items: center; }
     .f3-hero-grid { display: grid; grid-template-columns: 1fr; gap: 56px; align-items: center; }
     @media (min-width: 900px) {
       .f3-hero-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
     }
-    .f3-h1 { font-family: var(--font-display); font-size: clamp(52px, 6vw, 88px); font-weight: 600; color: var(--bg-cream); line-height: 1.02; letter-spacing: -0.01em; margin-bottom: 28px; }
+    .f3-h1 { font-family: var(--font-display); font-size: clamp(44px, 5.5vw, 80px); font-weight: 600; color: var(--bg-cream); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 28px; }
     .f3-h2 { font-family: var(--font-display); font-size: clamp(36px, 4vw, 60px); font-weight: 600; line-height: 1.05; letter-spacing: -0.01em; }
     .f3-gold { color: var(--gold); }
     .f3-trust { background: var(--bg-dark); border-top: 1px solid rgba(201,162,83,0.2); border-bottom: 1px solid rgba(201,162,83,0.2); padding: 28px 0; }
@@ -25,7 +25,6 @@
     .f3-dark-section { background: var(--bg-dark); }
     .f3-photo { width: 100%; aspect-ratio: 4/5; background: rgba(201,162,83,0.08); border: 1px solid rgba(201,162,83,0.15); border-radius: 24px; display: flex; align-items: center; justify-content: center; color: rgba(201,162,83,0.4); font-size: 13px; font-weight: 600; text-align: center; padding: 16px; }
     .f3-photo-wide { aspect-ratio: 3/2; }
-    .f3-photo-sq { aspect-ratio: 1/1; }
     .f3-step-num { width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--gold); color: var(--gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 32px; font-weight: 600; margin: 0 auto 24px; flex-shrink: 0; }
     .f3-step-free { background: var(--gold); color: var(--bg-dark); border-color: var(--gold); }
     .f3-stars { display: flex; gap: 3px; }
@@ -35,13 +34,18 @@
     .f3-btn-gold:hover { background: #b8912e; transform: scale(1.02); }
     .f3-btn-ghost { background: var(--gold-light); color: var(--gold); border: 1px solid var(--gold-border); border-radius: 100px; }
     .f3-btn-ghost:hover { background: rgba(201,162,83,0.2); }
-    .f3-cta-dark { background: var(--bg-dark); }
-    .f3-header-dark .site-header { background: rgba(26,26,26,0.9) !important; }
     label { display: block; font-size: 14px; font-weight: 500; color: var(--text-main); margin-bottom: 8px; }
     input[type="tel"] { width: 100%; padding: 16px 20px; font-size: 16px; font-family: var(--font-system); color: var(--text-main); background-color: #f5f5f7; border: 1px solid transparent; border-radius: var(--radius-md); outline: none; transition: all var(--transition-smooth); }
     input[type="tel"]:focus { background-color: #fff; border-color: var(--accent-digital); box-shadow: 0 0 0 4px var(--accent-light); }
     .wa-btn { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #fff; border-radius: 100px; padding: 16px 32px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all .3s; }
     .wa-btn:hover { background: #1da851; transform: scale(1.02); }
+    /* Authority gallery */
+    .auth-gallery { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    @media (min-width: 640px) { .auth-gallery { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 960px) { .auth-gallery { grid-template-columns: repeat(3, 1fr); } }
+    .auth-item figure { margin: 0; }
+    .auth-placeholder { width: 100%; aspect-ratio: 3/2; background: rgba(201,162,83,0.06); border: 1px solid rgba(201,162,83,0.15); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: rgba(201,162,83,0.4); font-size: 12px; font-weight: 600; text-align: center; padding: 16px; margin-bottom: 12px; }
+    .auth-item figcaption { font-size: 14px; color: rgba(250,250,245,0.5); line-height: 1.6; }
     @media (max-width: 900px) {
       .f3-trust-item { border-right: none; border-bottom: 1px solid rgba(201,162,83,0.15); width: 50%; text-align: center; }
       .f3-trust-item:nth-child(odd) { border-right: 1px solid rgba(201,162,83,0.15); }
@@ -54,9 +58,7 @@
     <div class="container header-container">
       <a href="index.html" class="logo" style="color: var(--bg-cream);">JewelFAQ</a>
       <nav class="nav-desktop">
-        <a href="individuals.html" style="color: rgba(250,250,245,0.65);">Individuals</a>
-        <a href="jewellers-3d.html" style="color: rgba(250,250,245,0.65);">Jewellers &amp; 3D</a>
-        <a href="students.html" style="color: rgba(250,250,245,0.65);">Students</a>
+        <a href="#how-it-works" style="color: rgba(250,250,245,0.65);">How it works</a>
         <a href="pricing.html" style="color: rgba(250,250,245,0.65);">Pricing</a>
         <a href="about.html" style="color: rgba(250,250,245,0.65);">About Colin</a>
         <a href="contact.html" style="color: rgba(250,250,245,0.65);">Contact</a>
@@ -71,9 +73,7 @@
 
   <div class="mobile-menu" id="mobile-menu">
     <button class="mobile-menu-close" id="mobile-menu-close">&times;</button>
-    <a href="individuals.html">Individuals</a>
-    <a href="jewellers-3d.html">Jewellers &amp; 3D</a>
-    <a href="students.html">Students</a>
+    <a href="#how-it-works">How it works</a>
     <a href="pricing.html">Pricing</a>
     <a href="about.html">About Colin</a>
     <a href="contact.html">Contact</a>
@@ -81,9 +81,7 @@
 
   <main>
 
-    <!-- ═══════════════════════════════════════════════
-         1. HERO DARK
-    ═══════════════════════════════════════════════ -->
+    <!-- 1. HERO -->
     <section class="f3-hero">
       <div class="container">
         <div class="f3-hero-grid reveal">
@@ -92,15 +90,18 @@
           <div>
             <span style="color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 28px;">Professional Jewellery Consultation</span>
             <h1 class="f3-h1">
-              Expert advice<br>from the bench.<br>
-              <span class="f3-gold">Not a chatbot.</span>
+              Practical jewellery advice<br>from a working bench<br>
+              <span class="f3-gold">in Birmingham.</span>
             </h1>
-            <p style="color: rgba(250,250,245,0.65); font-size: 19px; line-height: 1.55; margin-bottom: 40px; max-width: 480px;">
-              Send your case for free. Colin reviews it with 30 years of hands-on experience and gives you a clear, honest written opinion — before you pay a penny.
+            <p style="color: rgba(250,250,245,0.65); font-size: 18px; line-height: 1.6; margin-bottom: 16px; max-width: 480px;">
+              JewelFAQ is a one-to-one consultation service for jewellers, setters, designers and students who want straight answers from someone who still works at the bench every day in Birmingham's Jewellery Quarter.
+            </p>
+            <p style="color: rgba(250,250,245,0.5); font-size: 15px; margin-bottom: 36px;">
+              Send your case in for free. You only pay if I confirm I can help.
             </p>
             <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;">
-              <a href="#send-case" class="btn f3-btn-gold">Send your case &mdash; free</a>
-              <a href="#como-funciona" class="btn f3-btn-ghost">How it works</a>
+              <a href="#contact-form" class="btn f3-btn-gold">Send your case &mdash; free</a>
+              <a href="#how-it-works" class="btn f3-btn-ghost">How it works</a>
             </div>
 
             <!-- Mini review -->
@@ -114,7 +115,7 @@
                 <span style="color: rgba(250,250,245,0.4); font-size: 12px; margin-left: 8px;">Google Review</span>
               </div>
               <p style="color: rgba(250,250,245,0.55); font-size: 14px; font-style: italic; margin: 0; line-height: 1.6; max-width: 420px;">
-                "Straight honest people who were able to demonstrate that there was an issue. First class service and genuinely passionate about what they do." — <strong style="color: rgba(250,250,245,0.75); font-style: normal;">Kev Lane</strong>
+                "Straight honest people who were able to demonstrate that there was an issue. First class service and genuinely passionate about what they do." &mdash; <strong style="color: rgba(250,250,245,0.75); font-style: normal;">Kev Lane</strong>
               </p>
             </div>
           </div>
@@ -122,7 +123,7 @@
           <!-- Right: Photo -->
           <div>
             <div class="f3-photo" style="aspect-ratio: 4/5; max-width: 460px; margin: 0 auto;">
-              PHOTO — Colin at the bench<br>480 × 600
+              PHOTO &mdash; Colin at the bench<br>480 &times; 600
             </div>
           </div>
 
@@ -130,127 +131,149 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════
-         2. TRUST STRIP
-    ═══════════════════════════════════════════════ -->
+    <!-- 2. TRUST STRIP -->
     <div class="f3-trust">
       <div class="container">
         <div class="f3-trust-inner">
-          <div class="f3-trust-item"><strong>30 years</strong> at the bench</div>
-          <div class="f3-trust-item"><strong>Birmingham</strong> Jewellery Quarter</div>
-          <div class="f3-trust-item"><strong>Diamond</strong> Setting School</div>
-          <div class="f3-trust-item"><strong>YouTube</strong> @jewellerymadebyhand</div>
+          <div class="f3-trust-item"><strong>30+ years</strong> at the bench</div>
+          <div class="f3-trust-item"><strong>197A Warstone Lane</strong>, Jewellery Quarter</div>
+          <div class="f3-trust-item"><strong>Not</strong> a chatbot</div>
+          <div class="f3-trust-item">Reply within <strong>24 hours</strong></div>
         </div>
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════
-         3. WHO IT'S FOR
-    ═══════════════════════════════════════════════ -->
+    <!-- 3. WHO IT'S FOR (accordion) -->
     <section class="f3-cream">
       <div class="container reveal">
-        <h2 class="f3-h2 text-center" style="margin-bottom: 16px; color: var(--text-main);">Who this is for</h2>
-        <p class="text-center" style="color: var(--text-muted); margin-bottom: 64px; max-width: 600px; margin-left: auto; margin-right: auto;">Whether you own jewellery, make it, or are learning the craft — there is a place for you here.</p>
-        <div class="bento-grid col-3" style="gap: 28px;">
+        <h2 class="f3-h2 text-center" style="margin-bottom: 16px; color: var(--text-main);">Who JewelFAQ is for</h2>
+        <p class="text-center" style="color: var(--text-muted); margin-bottom: 56px; max-width: 600px; margin-left: auto; margin-right: auto;">
+          If you work with jewellery and have a specific problem, JewelFAQ is built for you. These are the three most common groups I help.
+        </p>
+        <div class="faq-grid" style="max-width: 860px; margin: 0 auto;">
 
-          <div class="bento-card" style="background: #fff;">
-            <div class="f3-photo f3-photo-wide" style="margin-bottom: 28px;">PHOTO — 480×320<br>Jewellery / repair close-up</div>
-            <h3 style="font-family: var(--font-display); font-size: 28px; font-weight: 600; color: var(--text-main);">Individuals</h3>
-            <p style="margin: 12px 0 28px; color: var(--text-muted); flex-grow: 1; line-height: 1.7;">A second opinion before accepting a repair quote, a purchase, or an important decision about a piece you care about.</p>
-            <a href="individuals.html" class="text-link">See what I help with &rarr;</a>
+          <div class="accordion">
+            <div class="accordion-header">Independent jewellers &amp; setters
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p style="margin-top:16px; line-height:1.8;">You're running a small workshop or trade bench and need a second pair of eyes. Maybe you're unsure about how to price a complex job, how to explain a risk to a customer, or whether a repair is even worth attempting. You can send photos from the bench, a short description and I'll help you decide on a safe, realistic way forward &mdash; including what to say to the client.</p>
+            </div>
           </div>
 
-          <div class="bento-card" style="background: var(--bg-dark); border-color: rgba(201,162,83,0.15);">
-            <div class="f3-photo f3-photo-wide" style="margin-bottom: 28px;">PHOTO — 480×320<br>STL / 3D design</div>
-            <h3 style="font-family: var(--font-display); font-size: 28px; font-weight: 600; color: var(--bg-cream);">Jewellers &amp; 3D</h3>
-            <p style="margin: 12px 0 28px; color: rgba(250,250,245,0.55); flex-grow: 1; line-height: 1.7;">Technical questions, STL reviews, workflow problems — a bench jeweller's eye, not a manufacturer's sales pitch.</p>
-            <a href="jewellers-3d.html" class="text-link" style="color: var(--gold);">See what I help with &rarr;</a>
+          <div class="accordion">
+            <div class="accordion-header">Designers &amp; 3D modellers
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p style="margin-top:16px; line-height:1.8;">You design in CAD or by hand and want to be sure your pieces will survive real-world wear and real-world repairs. You can send screenshots, STL previews or photos of prototypes, and I'll flag weak points, stone setting issues and practical changes before you commit to production.</p>
+            </div>
           </div>
 
-          <div class="bento-card" style="background: #fff;">
-            <div class="f3-photo f3-photo-wide" style="margin-bottom: 28px;">PHOTO — 480×320<br>Teaching / workshop</div>
-            <h3 style="font-family: var(--font-display); font-size: 28px; font-weight: 600; color: var(--text-main);">Students</h3>
-            <p style="margin: 12px 0 28px; color: var(--text-muted); flex-grow: 1; line-height: 1.7;">Real guidance while you learn or set up your first workshop. Straight answers from someone who has done it all from scratch.</p>
-            <a href="students.html" class="text-link">See what I help with &rarr;</a>
+          <div class="accordion">
+            <div class="accordion-header">Students &amp; apprentices
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p style="margin-top:16px; line-height:1.8;">You're learning stone setting or jewellery and need targeted, honest feedback. Maybe you've hit a wall with a specific technique or you're not sure which tools to invest in next. You send photos or videos of your work, I tell you what is going wrong, what is going right and what to focus on for your next 10 hours at the bench.</p>
+            </div>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════
-         4. HOW IT WORKS
-    ═══════════════════════════════════════════════ -->
-    <section id="como-funciona" style="background: #fff;">
+    <!-- 4. HOW IT WORKS -->
+    <section id="how-it-works" style="background: #fff;">
       <div class="container reveal">
-        <h2 class="f3-h2 text-center" style="margin-bottom: 16px; color: var(--text-main);">How it works</h2>
-        <p class="text-center" style="color: var(--text-muted); margin-bottom: 72px;">Three steps. The first one costs nothing.</p>
+        <h2 class="f3-h2 text-center" style="margin-bottom: 16px; color: var(--text-main);">How JewelFAQ works</h2>
+        <p class="text-center" style="color: var(--text-muted); margin-bottom: 72px;">The process is simple. You don't need perfect studio photos &mdash; quick bench shots are often better.</p>
 
         <div class="bento-grid col-3" style="gap: 48px;">
           <div style="text-align: center;">
             <div class="f3-step-num f3-step-free">FREE</div>
             <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--text-main);">Send your case</h3>
-            <p style="color: var(--text-muted); line-height: 1.7;">Describe your piece, the question, what you've been told, what concerns you. No payment, no obligation.</p>
+            <p style="color: var(--text-muted); line-height: 1.7;">Use the form below to tell me what is happening. Attach links, photos or a short video if you have them. Be as honest as you can &mdash; the more detail you share, the more useful my answer will be.</p>
           </div>
           <div style="text-align: center;">
             <div class="f3-step-num">2</div>
-            <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--text-main);">Colin reviews it</h3>
-            <p style="color: var(--text-muted); line-height: 1.7;">Colin reads your case and contacts you via WhatsApp. If he can help, he sends a secure £50 payment link. If not — no charge.</p>
+            <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--text-main);">I review and reply within 24 hours</h3>
+            <p style="color: var(--text-muted); line-height: 1.7;">I look at your case personally at the bench. If I am confident I can help, I'll tell you what type of session you need and give you a fixed price. If I can't help, I'll tell you that too and you owe nothing.</p>
           </div>
           <div style="text-align: center;">
             <div class="f3-step-num">3</div>
-            <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--text-main);">Get your answer</h3>
-            <p style="color: var(--text-muted); line-height: 1.7;">Within 24 hours of payment you receive a clear, written professional opinion — honest, direct, no fluff.</p>
+            <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--text-main);">We work through it together</h3>
+            <p style="color: var(--text-muted); line-height: 1.7;">Depending on what you choose, we either do everything by email/WhatsApp, or we book a live call. You get clear explanations and a short written summary with concrete next steps.</p>
           </div>
         </div>
 
         <div style="text-align: center; margin-top: 56px;">
-          <a href="#send-case" class="btn f3-btn-gold">Send your case — free &rarr;</a>
+          <a href="#contact-form" class="btn f3-btn-gold">Send your case &mdash; free &rarr;</a>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════
-         5. ABOUT COLIN
-    ═══════════════════════════════════════════════ -->
-    <section class="f3-dark-section">
+    <!-- 5. AUTHORITY GALLERY -->
+    <section class="f3-dark-section" style="padding: 80px 0;">
       <div class="container reveal">
-        <div style="display: grid; grid-template-columns: 1fr; gap: 64px; align-items: center;">
+        <h2 class="f3-h2 text-center" style="color: var(--bg-cream); margin-bottom: 16px;">The bench and school behind JewelFAQ</h2>
+        <p class="text-center" style="color: rgba(250,250,245,0.5); max-width: 600px; margin: 0 auto 56px; line-height: 1.7;">
+          Before you listen to anyone's advice, you should see where it comes from. JewelFAQ is backed by a fully equipped workshop and a one-to-one diamond setting school, not a shared office.
+        </p>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
-            <div class="f3-photo" style="aspect-ratio: 4/5; max-height: 520px;">PHOTO — Colin portrait<br>400 × 500</div>
-            <div>
-              <span style="color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 20px;">About Colin</span>
-              <h2 class="f3-h2" style="color: var(--bg-cream); margin-bottom: 24px;">30 years at the bench. No theory.</h2>
-              <p style="color: rgba(250,250,245,0.65); line-height: 1.8; margin-bottom: 20px;">I'm a bench jeweller and teacher based in Birmingham's Jewellery Quarter. I've done repairs, remodelling, diamond setting, handmade commissions, and trained students and professionals since the early 90s.</p>
-              <p style="color: rgba(250,250,245,0.65); line-height: 1.8; margin-bottom: 32px;">JewelFAQ is my way of giving you the honest technical judgement I'd give a friend — independent of any commercial interest, based only on what I've seen and done at the bench.</p>
-              <div style="display: flex; flex-direction: column; gap: 12px;">
-                <div style="display: flex; gap: 16px; align-items: flex-start;">
-                  <span style="color: var(--gold); margin-top: 2px;">&#10003;</span>
-                  <span style="color: rgba(250,250,245,0.7); font-size: 15px;">Independent — no commercial interests or referrals</span>
-                </div>
-                <div style="display: flex; gap: 16px; align-items: flex-start;">
-                  <span style="color: var(--gold); margin-top: 2px;">&#10003;</span>
-                  <span style="color: rgba(250,250,245,0.7); font-size: 15px;">Honest answers, even when they're not what you want to hear</span>
-                </div>
-                <div style="display: flex; gap: 16px; align-items: flex-start;">
-                  <span style="color: var(--gold); margin-top: 2px;">&#10003;</span>
-                  <span style="color: rgba(250,250,245,0.7); font-size: 15px;">Diamond Setting School founder &amp; YouTube educator</span>
-                </div>
-              </div>
-              <div style="margin-top: 36px;">
-                <a href="about.html" class="btn f3-btn-ghost">Read about Colin &rarr;</a>
-              </div>
-            </div>
+        <div class="auth-gallery">
+
+          <div class="auth-item">
+            <figure>
+              <div class="auth-placeholder">images/jewelfaq-microscope.jpg<br>600 &times; 400</div>
+              <figcaption>Pav&eacute; work under the microscope &mdash; the kind of detail I look for when you send your photos.</figcaption>
+            </figure>
+          </div>
+
+          <div class="auth-item">
+            <figure>
+              <div class="auth-placeholder">images/jewelfaq-channel-setting.jpg<br>600 &times; 400</div>
+              <figcaption>Channel setting in practice &mdash; the same techniques taught at Diamond Setting School and used on customer jobs.</figcaption>
+            </figure>
+          </div>
+
+          <div class="auth-item">
+            <figure>
+              <div class="auth-placeholder">images/jewelfaq-restoration.jpg<br>600 &times; 400</div>
+              <figcaption>Gold restoration before and after &mdash; decisions that affect whether a piece can be safely repaired.</figcaption>
+            </figure>
+          </div>
+
+          <div class="auth-item">
+            <figure>
+              <div class="auth-placeholder">images/jewelfaq-teaching.jpg<br>600 &times; 400</div>
+              <figcaption>One-to-one teaching at 197A Warstone Lane &mdash; students learning intensively for one or two weeks.</figcaption>
+            </figure>
+          </div>
+
+          <div class="auth-item">
+            <figure>
+              <div class="auth-placeholder">images/jewelfaq-bench-1.jpg<br>600 &times; 400</div>
+              <figcaption>Bench overview &mdash; microscopes, laser, traditional tools and the mess of a real working bench.</figcaption>
+            </figure>
+          </div>
+
+          <div class="auth-item">
+            <figure>
+              <div class="auth-placeholder">images/jewelfaq-youtube.jpg<br>600 &times; 400</div>
+              <figcaption>@jewellerymadebyhand &mdash; sharing practical tips publicly, not hiding behind generic marketing.</figcaption>
+            </figure>
           </div>
 
         </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="about.html" class="btn f3-btn-ghost">Read more about Colin &rarr;</a>
+        </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════
-         6. TESTIMONIALS
-    ═══════════════════════════════════════════════ -->
+    <!-- 6. TESTIMONIALS -->
     <section class="f3-dark-section" style="border-top: 1px solid rgba(201,162,83,0.1);">
       <div class="container reveal">
         <h2 class="f3-h2 text-center" style="color: var(--bg-cream); margin-bottom: 12px;">What clients say</h2>
@@ -278,7 +301,7 @@
               <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg width="16" height="16" fill="#C9A253" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <p style="color: rgba(250,250,245,0.75); line-height: 1.75; font-style: italic; font-size: 15px; margin-bottom: 20px;">"Straight honest people who not only spoke to you about the problem — they were able to demonstrate that there was an issue. First class service and genuinely passionate about what they do."</p>
+            <p style="color: rgba(250,250,245,0.75); line-height: 1.75; font-style: italic; font-size: 15px; margin-bottom: 20px;">"Straight honest people who not only spoke to you about the problem &mdash; they were able to demonstrate that there was an issue. First class service and genuinely passionate about what they do."</p>
             <p style="font-weight: 600; font-size: 13px; color: var(--gold); margin: 0;">Kev Lane &middot; Google Review</p>
           </div>
 
@@ -298,83 +321,52 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════
-         7. PRICING
-    ═══════════════════════════════════════════════ -->
+    <!-- 7. PRICING SUMMARY -->
     <section class="f3-cream">
       <div class="container reveal">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+        <span style="color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: block; text-align: center; margin-bottom: 16px;">Pricing</span>
+        <h2 class="f3-h2 text-center" style="color: var(--text-main); margin-bottom: 12px;">Simple &amp; upfront</h2>
+        <p class="text-center" style="color: var(--text-muted); margin-bottom: 56px; max-width: 540px; margin-left: auto; margin-right: auto;">
+          You first send your case for free. Once I see what is happening, I propose the simplest option that makes sense for you.
+        </p>
 
-          <!-- Left: Single consultation -->
-          <div>
-            <span style="color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 16px;">Pricing</span>
-            <h2 class="f3-h2" style="color: var(--text-main); margin-bottom: 8px;">Simple. Clear.</h2>
-            <div class="f3-price-big">£50</div>
-            <p style="color: var(--text-muted); font-size: 18px; margin-bottom: 32px;">per consultation</p>
-            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px;">
-              <li style="display: flex; gap: 14px; align-items: flex-start; color: var(--text-main);">
-                <span style="color: var(--accent-digital); flex-shrink: 0; margin-top: 2px;">&#10003;</span>
-                Send your case first &mdash; <strong>free, no payment today</strong>
-              </li>
-              <li style="display: flex; gap: 14px; align-items: flex-start; color: var(--text-main);">
-                <span style="color: var(--accent-digital); flex-shrink: 0; margin-top: 2px;">&#10003;</span>
-                Pay only if Colin confirms he can help
-              </li>
-              <li style="display: flex; gap: 14px; align-items: flex-start; color: var(--text-main);">
-                <span style="color: var(--accent-digital); flex-shrink: 0; margin-top: 2px;">&#10003;</span>
-                Written professional opinion within 24 hours
-              </li>
-              <li style="display: flex; gap: 14px; align-items: flex-start; color: var(--text-main);">
-                <span style="color: var(--accent-digital); flex-shrink: 0; margin-top: 2px;">&#10003;</span>
-                Valid for individuals, jewellers, 3D designers and students
-              </li>
-            </ul>
-            <a href="#send-case" class="btn btn-primary">Start a consultation &rarr;</a>
+        <div class="bento-grid col-3" style="gap: 28px; max-width: 960px; margin: 0 auto;">
+
+          <div class="bento-card" style="background: #fff;">
+            <h3 style="font-size: 20px; color: var(--accent-digital); margin-bottom: 12px;">Quick look &mdash; written reply</h3>
+            <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">For focused questions where you mainly need a second opinion and a few clear options.</p>
+            <p style="font-size: 13px; color: var(--text-main); font-weight: 600; margin: 0;">Typical range: from &pound;X &mdash; agreed after I see your case.</p>
           </div>
 
-          <!-- Right: Packs -->
-          <div>
-            <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 24px; color: var(--text-main);">Consultation packs</h3>
-            <p style="color: var(--text-muted); margin-bottom: 32px; line-height: 1.7;">For regular use. Buy a pack and use consultations when you need them — no expiry pressure.</p>
-            <div style="display: flex; flex-direction: column; gap: 16px;">
-              <div style="background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 24px 28px; display: flex; justify-content: space-between; align-items: center;">
-                <div>
-                  <div style="font-weight: 700; font-size: 17px; color: var(--text-main);">5 Consultations</div>
-                  <div style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">£40 each &mdash; save £50</div>
-                </div>
-                <div style="font-size: 28px; font-weight: 800; color: var(--text-main);">£200</div>
-              </div>
-              <div style="background: var(--text-main); border-radius: 16px; padding: 24px 28px; display: flex; justify-content: space-between; align-items: center; position: relative; overflow: hidden;">
-                <div style="position: absolute; top: 0; right: 24px; background: var(--gold); color: var(--bg-dark); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 0 0 6px 6px;">Popular</div>
-                <div>
-                  <div style="font-weight: 700; font-size: 17px; color: #fff;">10 Consultations</div>
-                  <div style="color: rgba(255,255,255,0.5); font-size: 13px; margin-top: 4px;">£35 each &mdash; save £150</div>
-                </div>
-                <div style="font-size: 28px; font-weight: 800; color: #fff;">£350</div>
-              </div>
-              <div style="background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 24px 28px; display: flex; justify-content: space-between; align-items: center;">
-                <div>
-                  <div style="font-weight: 700; font-size: 17px; color: var(--text-main);">100+ Consultations</div>
-                  <div style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">Workshops &amp; studios</div>
-                </div>
-                <a href="contact.html" style="font-size: 15px; font-weight: 700; color: var(--accent-digital); text-decoration: none;">Contact</a>
-              </div>
-            </div>
-            <p style="margin-top: 20px; font-size: 13px; color: var(--text-muted);">Packs valid for 12 months from purchase. <a href="pricing.html" style="color: var(--accent-digital);">Full pricing &amp; terms &rarr;</a></p>
+          <div class="bento-card dark" style="transform: scale(1.02); z-index: 10;">
+            <h3 style="font-size: 20px; color: #fff; margin-bottom: 12px;">Full case review &amp; live call</h3>
+            <p style="color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 20px;">For complex situations: pricing, difficult repairs, clients you are worried about, design and production issues. Includes a call and a short written summary.</p>
+            <p style="font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 600; margin: 0;">Typical range: from &pound;Y &mdash; agreed after I see your case.</p>
+          </div>
+
+          <div class="bento-card" style="background: #fff;">
+            <h3 style="font-size: 20px; color: var(--accent-digital); margin-bottom: 12px;">Ongoing mentoring</h3>
+            <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">Regular check-ins, review of your practice pieces and guidance on tools and workflow. For students and apprentices.</p>
+            <p style="font-size: 13px; color: var(--text-main); font-weight: 600; margin: 0;">Monthly plans from &pound;Z &mdash; agreed after I see your goals.</p>
           </div>
 
         </div>
+
+        <p class="text-center" style="margin-top: 32px; font-size: 14px; color: var(--text-muted);">
+          In every case you only pay once I confirm I can help and you agree to the format and price.
+          <a href="pricing.html" style="color: var(--accent-digital); margin-left: 8px;">Full pricing &amp; terms &rarr;</a>
+        </p>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════
-         8. FORM
-    ═══════════════════════════════════════════════ -->
-    <section id="send-case" style="background: #fff; border-top: 1px solid var(--border-subtle);">
+    <!-- 8. FORM -->
+    <section id="contact-form" style="background: #fff; border-top: 1px solid var(--border-subtle);">
       <div class="container reveal">
         <div style="max-width: 680px; margin: 0 auto;">
           <h2 class="f3-h2 text-center" style="color: var(--text-main); margin-bottom: 12px;">Send your case</h2>
-          <p class="text-center" style="color: var(--text-muted); margin-bottom: 48px;">Free. No payment until Colin confirms he can help.</p>
+          <p class="text-center" style="color: var(--text-muted); margin-bottom: 48px;">
+            The fastest way to start is to describe what is happening, attach any photos or links you have, and I'll reply within 24 hours to say whether I can help and what it would cost.
+          </p>
 
           <div class="form-bento">
             <form action="submit.php" method="POST">
@@ -402,14 +394,14 @@
 
               <div class="form-group">
                 <label for="h-mensaje">Your case</label>
-                <textarea id="h-mensaje" name="mensaje" required placeholder="Describe your piece, the question you have, what you've been told, what concerns you…"></textarea>
+                <textarea id="h-mensaje" name="mensaje" required placeholder="Describe your piece, the question you have, what you've been told, what concerns you&hellip;"></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary" style="width:100%; margin-top:24px;">
                 Send your case &mdash; free, no payment now &rarr;
               </button>
               <p style="text-align:center; font-size:12px; color:var(--text-muted); margin-top:10px;">
-                Colin will review and contact you via WhatsApp. You only pay if he can help.
+                Sending your case is free. You only pay if I confirm I can help and you decide to go ahead.
               </p>
             </form>
           </div>
@@ -417,20 +409,18 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════
-         9. FAQ
-    ═══════════════════════════════════════════════ -->
+    <!-- 9. FAQ -->
     <section class="f3-cream">
       <div class="container reveal">
         <h2 class="f3-h2 text-center" style="color: var(--text-main); margin-bottom: 56px;">Frequently Asked Questions</h2>
         <div class="faq-grid">
 
           <div class="accordion">
-            <div class="accordion-header">Who answers my consultation?
+            <div class="accordion-header">Do I need professional photos?
               <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
             </div>
             <div class="accordion-content">
-              <p style="margin-top:16px;">Always me — Colin, bench jeweller and teacher with 30 years of experience. No assistants, no interns, no AI.</p>
+              <p style="margin-top:16px;">No. Phone photos from the bench are usually better, because they show the real situation. If something is unclear I'll tell you what extra images I need.</p>
             </div>
           </div>
 
@@ -444,29 +434,47 @@
           </div>
 
           <div class="accordion">
-            <div class="accordion-header">Why is the turnaround 24 hours?
+            <div class="accordion-header">Do you only work with people in the UK?
               <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
             </div>
             <div class="accordion-content">
-              <p style="margin-top:16px;">Because I review each case carefully. My commitment is to reply within 24 hours of payment confirmation.</p>
+              <p style="margin-top:16px;">No. Most advice can be given remotely as long as you can send clear photos, videos and measurements. Time zones are easy to work around.</p>
             </div>
           </div>
 
           <div class="accordion">
-            <div class="accordion-header">Will you reply instantly on WhatsApp?
+            <div class="accordion-header">Which languages do you work in?
               <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
             </div>
             <div class="accordion-content">
-              <p style="margin-top:16px;">No. WhatsApp is used to send you the payment link and follow up on your case. The consultation answer itself is delivered in writing within 24 hours.</p>
+              <p style="margin-top:16px;">I work in English and Spanish. If you are more comfortable writing in another language, you can still send your case and we'll see what is possible.</p>
             </div>
           </div>
 
           <div class="accordion">
-            <div class="accordion-header">Do you do calls or video calls?
+            <div class="accordion-header">Is this a course or a one-off consultation?
               <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
             </div>
             <div class="accordion-content">
-              <p style="margin-top:16px;">No. I work exclusively by text and files. This lets me analyse every detail carefully and give you a precise written answer you can refer back to.</p>
+              <p style="margin-top:16px;">JewelFAQ is not a generic course. It is one-to-one advice applied to your specific case. If you want a full one- or two-week diamond setting course, that happens through <a href="https://diamondsettingschool.com/" target="_blank" style="color: var(--accent-digital);">Diamond Setting School</a> instead.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">Can I visit you in person?
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p style="margin-top:16px;">For most people, online is faster and cheaper. If you are nearby or already coming to Birmingham, we can discuss an in-person consultation at 197A Warstone Lane.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">Will you tell me the truth even if it's not what I want to hear?
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+            </div>
+            <div class="accordion-content">
+              <p style="margin-top:16px;">Yes. My value is in honest technical judgement, not in telling you what you want to hear. If something seems off to me, I'll say so.</p>
             </div>
           </div>
 
@@ -483,24 +491,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════
-         10. FINAL CTA DARK
-    ═══════════════════════════════════════════════ -->
-    <section class="f3-dark-section">
-      <div class="container reveal" style="text-align: center;">
-        <span style="color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 24px;">Ready?</span>
-        <h2 class="f3-h2" style="color: var(--bg-cream); margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">Get the expert opinion you need.</h2>
-        <p style="color: rgba(250,250,245,0.55); font-size: 18px; margin-bottom: 48px; max-width: 500px; margin-left: auto; margin-right: auto;">Send your case for free. No payment until Colin confirms he can help.</p>
-        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-          <a href="#send-case" class="btn f3-btn-gold">Send your case &mdash; free &rarr;</a>
-          <a href="https://wa.me/447415072425?text=Hi+Colin,+I'd+like+to+ask+about+a+consultation" target="_blank" class="wa-btn">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp Colin
-          </a>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer" style="background: #111; border-top-color: rgba(201,162,83,0.15);">
@@ -510,12 +500,11 @@
         <p style="color: rgba(250,250,245,0.35); font-size: 14px;">Technical jewellery consultancy.</p>
       </div>
       <div class="footer-col">
-        <h5 style="color: rgba(250,250,245,0.5);">Services</h5>
+        <h5 style="color: rgba(250,250,245,0.5);">Navigate</h5>
         <ul>
-          <li><a href="individuals.html" style="color: rgba(250,250,245,0.4);">Individuals</a></li>
-          <li><a href="jewellers-3d.html" style="color: rgba(250,250,245,0.4);">Jewellers &amp; 3D</a></li>
-          <li><a href="students.html" style="color: rgba(250,250,245,0.4);">Students</a></li>
+          <li><a href="#how-it-works" style="color: rgba(250,250,245,0.4);">How it works</a></li>
           <li><a href="pricing.html" style="color: rgba(250,250,245,0.4);">Pricing</a></li>
+          <li><a href="#contact-form" style="color: rgba(250,250,245,0.4);">Send your case</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -547,56 +536,34 @@
         <p style="color:#6b7280;font-size:13px;margin-bottom:28px;">Last updated: March 2026 &mdash; JewelFAQ / The Jewellery Crafters, Birmingham, UK</p>
         <div style="line-height:1.9;color:#1D1D1F;font-size:14px;">
             <p><strong>1. Who We Are</strong><br>JewelFAQ is a trading name of The Jewellery Crafters, based in The Jewellery Quarter, Birmingham, UK. We are the data controller for all personal information collected through this website. [Company registration number: pending].</p>
-            <p style="margin-top:16px;"><strong>2. What Personal Data We Collect</strong><br>
-                &bull; Full name<br>
-                &bull; WhatsApp / phone number<br>
-                &bull; Email address (where provided)<br>
-                &bull; Description of your jewellery case or enquiry<br>
-                &bull; Payment reference issued by Stripe (we never see or store your card details)
-            </p>
-            <p style="margin-top:16px;"><strong>3. Legal Basis for Processing (UK GDPR, Art. 6)</strong><br>
-                &bull; <em>Performance of a contract</em> &mdash; to deliver the consultation service you have requested.<br>
-                &bull; <em>Legitimate interests</em> &mdash; to manage our operations, prevent fraud and maintain financial records.
-            </p>
-            <p style="margin-top:16px;"><strong>4. How We Use Your Data</strong><br>
-                &bull; To assess, manage and respond to your consultation request.<br>
-                &bull; To send you a payment link and your written response via WhatsApp.<br>
-                &bull; To issue refunds where applicable.<br>
-                &bull; To meet our legal obligations under UK tax and business law.
-            </p>
+            <p style="margin-top:16px;"><strong>2. What Personal Data We Collect</strong><br>&bull; Full name<br>&bull; WhatsApp / phone number<br>&bull; Email address (where provided)<br>&bull; Description of your jewellery case or enquiry<br>&bull; Payment reference issued by Stripe (we never see or store your card details)</p>
+            <p style="margin-top:16px;"><strong>3. Legal Basis for Processing (UK GDPR, Art. 6)</strong><br>&bull; <em>Performance of a contract</em> &mdash; to deliver the consultation service you have requested.<br>&bull; <em>Legitimate interests</em> &mdash; to manage our operations, prevent fraud and maintain financial records.</p>
+            <p style="margin-top:16px;"><strong>4. How We Use Your Data</strong><br>&bull; To assess, manage and respond to your consultation request.<br>&bull; To send you a payment link and your written response via WhatsApp.<br>&bull; To issue refunds where applicable.<br>&bull; To meet our legal obligations under UK tax and business law.</p>
             <p style="margin-top:16px;"><strong>5. Retention</strong><br>Your personal data is retained for 12 months from the date of your consultation, after which it is permanently deleted. Financial records required by HMRC are retained for up to 6 years in accordance with the Taxes Management Act 1970.</p>
-            <p style="margin-top:16px;"><strong>6. Third Parties</strong><br>
-                &bull; <em>Stripe, Inc.</em> &mdash; processes card payments. Stripe is PCI DSS Level 1 certified. We receive only a payment confirmation reference, never your card details. See <a href="https://stripe.com/gb/privacy" target="_blank" style="color:#00674F;">stripe.com/gb/privacy</a>.<br>
-                &bull; We do not sell, rent or share your personal data with any other third parties.
-            </p>
-            <p style="margin-top:16px;"><strong>7. Your Rights under UK GDPR</strong><br>You have the right to: access the personal data we hold about you &bull; correct inaccurate data &bull; request erasure (&ldquo;right to be forgotten&rdquo;) &bull; restrict or object to processing &bull; data portability.<br>
-            To exercise any of these rights, contact us via WhatsApp at <strong>+44 74 1507 2425</strong>. We will respond within 30 days.
-            </p>
+            <p style="margin-top:16px;"><strong>6. Third Parties</strong><br>&bull; <em>Stripe, Inc.</em> &mdash; processes card payments. Stripe is PCI DSS Level 1 certified. We receive only a payment confirmation reference, never your card details. See <a href="https://stripe.com/gb/privacy" target="_blank" style="color:#00674F;">stripe.com/gb/privacy</a>.<br>&bull; We do not sell, rent or share your personal data with any other third parties.</p>
+            <p style="margin-top:16px;"><strong>7. Your Rights under UK GDPR</strong><br>You have the right to: access the personal data we hold about you &bull; correct inaccurate data &bull; request erasure (&ldquo;right to be forgotten&rdquo;) &bull; restrict or object to processing &bull; data portability.<br>To exercise any of these rights, contact us via WhatsApp at <strong>+44 74 1507 2425</strong>. We will respond within 30 days.</p>
             <p style="margin-top:16px;"><strong>8. Cookies</strong><br>This website does not use tracking, advertising or analytical cookies.</p>
             <p style="margin-top:16px;"><strong>9. Complaints</strong><br>If you believe we have not handled your data lawfully, you have the right to lodge a complaint with the <strong>Information Commissioner&apos;s Office (ICO)</strong>: <a href="https://ico.org.uk" target="_blank" style="color:#00674F;">ico.org.uk</a> &mdash; 0303 123 1113.</p>
         </div>
     </div>
 </div>
-  </div>
 
   <!-- Terms & Conditions Modal -->
   <div id="modal-terms" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:9000; align-items:flex-start; justify-content:center; padding:40px 24px; overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
-    <div style="background:#fff; border-radius:16px; max-width:640px; width:100%; padding:40px; position:relative; margin:auto;">
-      <button onclick="document.getElementById('modal-terms').style.display='none'" style="position:absolute;top:16px;right:20px;font-size:28px;background:none;border:none;cursor:pointer;color:#6b7280;line-height:1;">&times;</button>
-      <h2 style="margin-bottom:8px;">Terms &amp; Conditions</h2>
-      <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;">Last updated: March 2026</p>
-      <div style="line-height:1.9;color:var(--text-main);font-size:15px;">
-        <p><strong>The service:</strong> JewelFAQ provides written jewellery consultation by Colin, a bench jeweller with 30 years of experience. This is a professional opinion — not an official valuation, insurance appraisal, or legal document.</p>
-        <p style="margin-top:14px;"><strong>Price:</strong> £50 per standard consultation, paid via Stripe.</p>
-        <p style="margin-top:14px;"><strong>How it works:</strong> You submit your case for free. Colin reviews it and confirms whether he can help. A payment link is sent only after confirmation. You are never charged for a case Colin cannot address.</p>
-        <p style="margin-top:14px;"><strong>Turnaround:</strong> Written answer delivered within 24 hours of payment confirmation.</p>
-        <p style="margin-top:14px;"><strong>Scope:</strong> Each consultation covers one defined case or question. New topics arising from the response are treated as a new consultation.</p>
-        <p style="margin-top:14px;"><strong>Refunds:</strong> If Colin determines he cannot help with your case after payment has been made, a full refund will be issued.</p>
-        <p style="margin-top:14px;"><strong>Format:</strong> Written answers only. No phone calls or video calls are included in any plan.</p>
-        <p style="margin-top:14px;"><strong>Governing law:</strong> England &amp; Wales.</p>
-        <p style="margin-top:14px;"><strong>Business:</strong> Trading as JewelFAQ &mdash; The Jewellery Crafters, Birmingham, UK. (Ltd registration pending April 2026.)</p>
+      <div style="background:#fff; border-radius:16px; max-width:680px; width:100%; padding:40px; position:relative; margin:auto;">
+          <button onclick="document.getElementById('modal-terms').style.display='none'" style="position:absolute;top:16px;right:20px;font-size:28px;background:none;border:none;cursor:pointer;color:#6b7280;line-height:1;">&times;</button>
+          <h2 style="margin-bottom:8px;">Terms &amp; Conditions</h2>
+          <p style="color:#6b7280;font-size:13px;margin-bottom:28px;">Last updated: March 2026 &mdash; JewelFAQ / The Jewellery Crafters, Birmingham, UK</p>
+          <div style="line-height:1.9;color:#1D1D1F;font-size:14px;">
+              <p><strong>1. About Us</strong><br>JewelFAQ is a trading name of The Jewellery Crafters, Birmingham, UK. [Company registration number: pending]. Contact: WhatsApp +44 74 1507 2425.</p>
+              <p style="margin-top:16px;"><strong>2. The Service</strong><br>JewelFAQ provides written jewellery and gemstone consultation by Colin, a bench jeweller with over 30 years of professional experience. Responses are professional technical opinions based solely on the information you provide. They are <em>not</em>: official valuations or insurance appraisals &bull; legal advice or expert witness reports &bull; guarantees of any manufacturing outcome.</p>
+              <p style="margin-top:16px;"><strong>3. How to Order</strong><br>1. Submit your case via the website form &mdash; free of charge.<br>2. Colin reviews your case and decides whether he can assist.<br>3. If accepted, you receive a payment link via WhatsApp.<br>4. Payment is made securely via Stripe.<br>5. Your written response is delivered within 24 hours of payment confirmation.</p>
+              <p style="margin-top:16px;"><strong>4. Price and Payment</strong><br>Prices are agreed before payment. [VAT number: pending registration.] Payment is processed by Stripe, Inc. by card only. You will not be charged unless Colin confirms he can address your case.</p>
+              <p style="margin-top:16px;"><strong>5. Right to Cancel &mdash; Consumer Contracts Regulations 2013</strong><br>You have a statutory right to cancel within 14 days of your order. However, by submitting payment and requesting the service to begin immediately, you acknowledge that if the written response is delivered within the 14-day period, you lose your cancellation right under Regulation 36(1) once the service is fully performed.</p>
+              <p style="margin-top:16px;"><strong>6. Refunds</strong><br>&bull; If Colin determines he cannot assist after payment, a full refund is issued within 5 business days.<br>&bull; No refund is issued once the written response has been delivered, unless there is a material factual error attributable to us.</p>
+              <p style="margin-top:16px;"><strong>7. Governing Law</strong><br>These terms are governed by the law of England and Wales.</p>
+          </div>
       </div>
-    </div>
   </div>
 
 <!-- Anti-Fraud Notice Modal -->
@@ -607,27 +574,9 @@
         <p style="color:#6b7280;font-size:13px;margin-bottom:28px;">Last updated: March 2026</p>
         <div style="line-height:1.9;color:#1D1D1F;font-size:14px;">
             <p>JewelFAQ only communicates through the official channels listed below. If anyone contacts you claiming to represent JewelFAQ through any other channel, or requests payment to a different account, <strong>do not comply</strong> &mdash; this is fraud.</p>
-            <p style="margin-top:16px;"><strong>Official Contact Channels</strong><br>
-                &bull; Website: <strong>jewelfaq.com</strong> (forms only)<br>
-                &bull; WhatsApp: <strong>+44 74 1507 2425</strong><br>
-                &bull; Email: <strong>colin@jewelfaq.com</strong>
-            </p>
-            <p style="margin-top:16px;"><strong>Official Payment Method</strong><br>
-                &bull; Card payment only, via <strong>Stripe</strong>, through the link sent to your WhatsApp from our official number.<br>
-                &bull; JewelFAQ will <strong>never</strong> ask for payment via bank transfer, PayPal, Revolut, cryptocurrency or cash.<br>
-                &bull; [Business account details: to be added]
-            </p>
-            <p style="margin-top:16px;"><strong>Warning Signs of Fraud</strong><br>
-                &bull; Messages from an unknown number or account claiming to be Colin or JewelFAQ.<br>
-                &bull; Requests to pay a &ldquo;new&rdquo; or &ldquo;updated&rdquo; link not sent from our official WhatsApp.<br>
-                &bull; Urgency pressure: &ldquo;Pay now or lose your slot.&rdquo;<br>
-                &bull; Requests for personal documents (passport, bank statements) &mdash; we never ask for these.
-            </p>
-            <p style="margin-top:16px;"><strong>What to Do if You Suspect Fraud</strong><br>
-                1. Do not send any payment.<br>
-                2. Contact us directly via WhatsApp at <strong>+44 74 1507 2425</strong> to verify.<br>
-                3. Report to <strong>Action Fraud</strong> (UK): <a href="https://actionfraud.police.uk" target="_blank" style="color:#dc2626;">actionfraud.police.uk</a> &mdash; 0300 123 2040.
-            </p>
+            <p style="margin-top:16px;"><strong>Official Contact Channels</strong><br>&bull; Website: <strong>jewelfaq.com</strong> (forms only)<br>&bull; WhatsApp: <strong>+44 74 1507 2425</strong><br>&bull; Email: <strong>colin@jewelfaq.com</strong></p>
+            <p style="margin-top:16px;"><strong>Official Payment Method</strong><br>&bull; Card payment only, via <strong>Stripe</strong>, through the link sent to your WhatsApp from our official number.<br>&bull; JewelFAQ will <strong>never</strong> ask for payment via bank transfer, PayPal, Revolut, cryptocurrency or cash.</p>
+            <p style="margin-top:16px;"><strong>What to Do if You Suspect Fraud</strong><br>1. Do not send any payment.<br>2. Contact us via WhatsApp at <strong>+44 74 1507 2425</strong> to verify.<br>3. Report to <strong>Action Fraud</strong> (UK): <a href="https://actionfraud.police.uk" target="_blank" style="color:#dc2626;">actionfraud.police.uk</a> &mdash; 0300 123 2040.</p>
         </div>
     </div>
 </div>
